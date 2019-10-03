@@ -17,25 +17,16 @@ export default class Table extends Component {
         return random;
     }
     componentDidMount() {
-        //let checkIterations = 0;
         let languageManager = this.props.languageManager();
         var testArr = [];
         testArr.push(languageManager.tableList);
 
         const _this = this;
         this.timer = setInterval(function(){
-            // checkIterations++;
-            // if(checkIterations === 26) {
-            //     checkIterations = 0;
-            //     testArr = [];
-            //     testArr.push(languageManager.tableList);
-            //     _this.rand()
-            //     clearInterval(this.timer)
-            // }
-
             var random = _this.rand();
             testArr[0].unshift(testArr[0][random]);
-            testArr[0].length = 27;
+            testArr[0].length = languageManager.tableList.length;
+            testArr.push(languageManager.tableList);
             _this.setState({
                 tableArr: testArr[0],
                 random: random
