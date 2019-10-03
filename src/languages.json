@@ -1,0 +1,322 @@
+{
+  "en": {
+    "menu_items": [
+      {
+        "name": "Qui suis-je ?"
+      },
+      {
+        "name": "Exemples de réussite"
+      },
+      {
+        "name": "Comment ça marche"
+      },
+      {
+        "name": "Résultats en direct"
+      },
+      {
+        "name": "FAQ"
+      }
+    ],
+    "formTitle": "COMMENCEZ TOUT DE SUITE!",
+    "formSubtitle": "Saisissez votre adresse e-mail maintenant pour avoir immédiatement et gratuitement accès à la Formule Française!",
+    "fname": "Entrez votre prénom",
+    "email": "E-MAIL :",
+    "buttonSubmit": "Créer votre compte gratuit",
+    "underSubmitBtn": "-OFFRE À DURÉE LIMITÉE-",
+    "passtest": [
+      "The password must be 8 characters long.",
+      "Must contain at least 1 small letter.",
+      "Must contain at least 1 capital letter.",
+      "Must contain at least 1 number."
+    ],
+    "about": [
+      {
+        "info_1": "Bonjour, je suis",
+        "info_2": "le créateur de la",
+        "strong_1": "Nathan Laurent",
+        "strong_2": "Formule Française."
+      },
+      {
+        "info": "Je tiens tout d'abord à préciser que je ne suis pas l'un de ces gourous bidons qui vous vendent des trucs qui ne fonctionnent pas. Je ne suis pas un mathématicien et je n'ai pas de diplôme universitaire."
+      },
+      {
+        "title": "POURQUOI LA Formule Française?",
+        "info": "J'ai simplement découvert un moyen de gagner des millions d'euros en utilisant une formule de négociation simple et mon objectif est de partager ma réussite avec les autres."
+      },
+      {
+        "info": "Premièrement, elle fonctionne très très bien, est facile à utiliser et n'importe qui peut gagner de l'argent avec ma formule, que vous soyez un trader en herbe ou expérimenté. J'ai créé cette formule pour que n'importe qui puisse l'utiliser et générer des profits. La Formule Française fonctionne, je vous le garantis !"
+      }
+    ],
+
+    "galleryTitle": "Exemples de réussite",
+
+    "socialTitle": "DERNIÈRES MISES À JOUR DES FILS TWITTER ET FACEBOOK",
+    "facebookTitle": "Commentaires",
+    "facebookList": [
+      {
+        "img": "Marion",
+        "name": "Marion",
+        "timeAgo": "2 minutes",
+        "descr": "Cette formule est si facile à comprendre. J'ai gagné plus de 2 000 € en deux jours avec la Formule Française",
+        "comment": "J'aime - Laisser un commentaire - Partager"
+      },
+      {
+        "img": "Titouan",
+        "name": "Titouan",
+        "timeAgo": "3 minutes",
+        "descr": "C'est vraiment comme d'imprimer des billets... Non vraiment, vous devriez retirer ce truc du marché #formulefrançaise Je ne veut pas que les autres la découvrent #égoïste",
+        "comment": "J'aime - Laisser un commentaire - Partager"
+      },
+      {
+        "img": "Baptisle",
+        "name": "Baptisle",
+        "timeAgo": "4 minutes",
+        "descr": "ET HOP ! J'ai déjà gagné plus de 3 800 € grâce à la Formule Française et la journée ne fait que commencer !",
+        "comment": "J'aime - Laisser un commentaire - Partager"
+      }
+    ],
+    "twitterTitle": "Tweets",
+    "twitterList": [
+      {
+        "img": "Gabriel",
+        "name": "Gabriel",
+        "timeAgo": "2 minutes",
+        "descr": "ENFIN une Formule Française de trading légale qui fonctionne vraiment et qui est vraiment simple à utiliser..."
+      },
+      {
+        "img": "Manon",
+        "name": "Manon",
+        "timeAgo": "3 minutes",
+        "descr": "C'est vraiment comme d'imprimer des billets... Non vraiment, vous devriez retirer ce truc du marché #formulefrançaise Je ne veut pas que les autres la découvrent #égoïste"
+      },
+      {
+        "img": "LeYasmine",
+        "name": "Le Yasmine",
+        "timeAgo": "4 minutes",
+        "descr": "J'ai déposé 250 € sur la Formule Française et maintenant, au bout de 7 jours, mon compte affiche 30 000 € ! #Jaimeça #millionaires"
+      },
+      {
+        "img": "Corentin",
+        "name": "Corentin",
+        "timeAgo": "5 minutes",
+        "descr": "Génial ce truc. Les gars, vous êtes SUPER #formulefrançaise. Première transaction du jour et je viens de gagner 389 € ! Dingue ! @davantagedeprofits #formulefrançaise"
+      },
+      {
+        "img": "Mathis",
+        "name": "Mathis",
+        "timeAgo": "6 minutes",
+        "descr": "Bon Dieu, que se passe-t-il ? Mon compte affiche maintenant 23 891,44 € et je n'ai déposé que 300 € il y a 4 jours, c'est complètement dingue ! #formulefrançaised"
+      },
+      {
+        "img": "Maeva",
+        "name": "Maéva",
+        "timeAgo": "7 minutes",
+        "descr": "Je recommande VIVEMENT la Formule Française ! Oh merde... Merci ! Ce truc est fantastique #formulefrançaise"
+      }
+    ],
+
+    "tableMenuItems": [
+      {
+        "name": "La Formule Française"
+      },
+      {
+        "name": "Profit"
+      },
+      {
+        "name": "Heure de négoce"
+      },
+      {
+        "name": "Devise"
+      },
+      {
+        "name": "Résultats"
+      }
+    ],
+    "tableList": [
+      {
+        "name": "Matthew",
+        "descr": "je viens de gagner un trade...",
+        "price": "269 €",
+        "date": "3 October 2019",
+        "currency": "GBP/JPY"
+      },
+      {
+        "name": "David",
+        "descr": "je viens de gagner un trade...",
+        "price": "298 €",
+        "date": "3 October 2019",
+        "currency": "EUR/JPY"
+      },
+      {
+        "name": "Pamela",
+        "descr": "je viens de gagner un trade...",
+        "price": "270 €",
+        "date": "3 October 2019",
+        "currency": "USD/EUR"
+      },
+      {
+        "name": "Rhonda",
+        "descr": "je viens de gagner un trade...",
+        "price": "497 €",
+        "date": "3 October 2019",
+        "currency": "USD/EUR"
+      },
+      {
+        "name": "Juanita",
+        "descr": "je viens de gagner un trade...",
+        "price": "250 €",
+        "date": "3 October 2019",
+        "currency": "USD/JPY"
+      },
+      {
+        "name": "Allyson",
+        "descr": "je viens de gagner un trade...",
+        "price": "523 €",
+        "date": "3 October 2019",
+        "currency": "GBP/JPY"
+      },
+      {
+        "name": "Terry",
+        "descr": "je viens de gagner un trade...",
+        "price": "496 €",
+        "date": "3 October 2019",
+        "currency": "USD/NZD"
+      },
+      {
+        "name": "Pamela",
+        "descr": "je viens de gagner un trade...",
+        "price": "435 €",
+        "date": "3 October 2019",
+        "currency": "EUR/JPY"
+      },
+      {
+        "name": "Jessie",
+        "descr": "je viens de gagner un trade...",
+        "price": "224 €",
+        "date": "3 October 2019",
+        "currency": "USD/GBP"
+      },
+      {
+        "name": "Claudia",
+        "descr": "je viens de gagner un trade...",
+        "price": "370 €",
+        "date": "3 October 2019",
+        "currency": "USD/EUR"
+      },
+      {
+        "name": "Tori",
+        "descr": "je viens de gagner un trade...",
+        "price": "485 €",
+        "date": "3 October 2019",
+        "currency": "GBP/JPY"
+      },
+      {
+        "name": "Nicholas",
+        "descr": "je viens de gagner un trade...",
+        "price": "236 €",
+        "date": "3 October 2019",
+        "currency": "USD/NZD"
+      },
+      {
+        "name": "Carol",
+        "descr": "je viens de gagner un trade...",
+        "price": "543 €",
+        "date": "3 October 2019",
+        "currency": "GBP/AUD"
+      },
+      {
+        "name": "Denise",
+        "descr": "je viens de gagner un trade...",
+        "price": "463 €",
+        "date": "3 October 2019",
+        "currency": "USD/JPY"
+      },
+      {
+        "name": "Phoebe",
+        "descr": "je viens de gagner un trade...",
+        "price": "324 €",
+        "date": "3 October 2019",
+        "currency": "GBP/AUD"
+      },
+      {
+        "name": "Nancy",
+        "descr": "je viens de gagner un trade...",
+        "price": "548 €",
+        "date": "3 October 2019",
+        "currency": "NZD/USD"
+      },
+      {
+        "name": "Lonnie",
+        "descr": "je viens de gagner un trade...",
+        "price": "332 €",
+        "date": "3 October 2019",
+        "currency": "GBP/JPY"
+      },
+      {
+        "name": "Juanita",
+        "descr": "je viens de gagner un trade...",
+        "price": "498 €",
+        "date": "3 October 2019",
+        "currency": "USD/JPY"
+      },
+      {
+        "name": "Stacy",
+        "descr": "je viens de gagner un trade...",
+        "price": "330 €",
+        "date": "3 October 2019",
+        "currency": "USD/EUR"
+      },
+      {
+        "name": "Richard",
+        "descr": "je viens de gagner un trade...",
+        "price": "287 €",
+        "date": "3 October 2019",
+        "currency": "AUD/EUR"
+      },
+      {
+        "name": "Elizabeth",
+        "descr": "je viens de gagner un trade...",
+        "price": "281 €",
+        "date": "3 October 2019",
+        "currency": "EUR/AUD"
+      },
+      {
+        "name": "Abraham",
+        "descr": "je viens de gagner un trade...",
+        "price": "482 €",
+        "date": "3 October 2019",
+        "currency": "GBP/JPY"
+      },
+      {
+        "name": "James",
+        "descr": "je viens de gagner un trade...",
+        "price": "446 €",
+        "date": "3 October 2019",
+        "currency": "USD/JPY"
+      },
+      {
+        "name": "Karlene",
+        "descr": "je viens de gagner un trade...",
+        "price": "291 €",
+        "date": "3 October 2019",
+        "currency": "GBP/AUD"
+      },
+      {
+        "name": "Sheena",
+        "descr": "je viens de gagner un trade...",
+        "price": "418 €",
+        "date": "3 October 2019",
+        "currency": "EUR/AUD"
+      },
+      {
+        "name": "Denise",
+        "descr": "je viens de gagner un trade...",
+        "price": "324 €",
+        "date": "3 October 2019",
+        "currency": "GBP/AUD"
+      }
+
+    ]
+
+  }
+}
