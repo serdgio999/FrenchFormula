@@ -115,6 +115,7 @@
       }
     ],
 
+    "tableName": "Résultats éprouvés par des tiers !",
     "tableMenuItems": [
       {
         "name": "La Formule Française"
@@ -316,6 +317,62 @@
         "currency": "GBP/AUD"
       }
 
+    ],
+
+    "faqsTitle": "Frequently Asked Questions",
+    "faqsList": [
+      {
+        "title": "Qu'est-ce que la Formule Française?",
+        "descr": "La Formule Française est une formule de trading 100 % GRATUITE qui vous guide à travers les marchés financiers en un seul clic ! En suivant les instructions simples fournies par l'équipe de la Formule Française, vous pouvez augmenter votre pourcentage de gains jusqu'à 98% !"
+      },
+      {
+        "title": "Combien d'argent puis-je gagner avec ce logiciel ?",
+        "descr": "En deux mots : il n'y a pas de limite. En termes plus techniques, cela dépend vraiment de combien d'argent vous placez sur votre compte. La plupart de nos membres placent 300 € sur leur compte et gagnent en moyenne 1 000 € par jour. Ceux qui placent 1 000 € sur leur compte, ou plus, gagnent en moyenne plus de 3 500 $ par jour !"
+      },
+      {
+        "title": "Combien de temps dure chaque transaction ?",
+        "descr": "Entre une minute et une heure. Vous verrez donc immédiatement vos profits, sans devoir attendre très longtemps."
+      },
+      {
+        "title": "Dois-je utiliser ma carte de crédit lors de mon inscription ?",
+        "descr": "La Formule Française est une application entièrement GRATUITE. On ne vous demandera PAS votre numéro de carte de crédit, vos coordonnées bancaires ou votre compte PayPal lorsque vous téléchargerez le programme de la Formule Française."
+      },
+      {
+        "title": "Est-ce que votre logiciel fonctionne avec Mac ?",
+        "descr": "Oui ! C'est une application basée sur le web, ce qui signifie qu'elle peut être utilisée sur les systèmes Windows, Mac et Linux ! Il vous suffit d'avoir un navigateur."
+      },
+      {
+        "title": "Je n'ai pas beaucoup de temps libre, la Formule Française est-elle vraiment automatisée ?",
+        "descr": " Il vous suffit de suivre les instructions simples et le programme effectuera les opérations de trading pour vous ! Vous n'avez pas besoin d'être près du programme pour qu'il travaille pour vous et vous générez des profits s'élevant à des milliers d'euros par jour !"
+      },
+      {
+        "title": "Est-ce que le logiciel est facile à utiliser ?",
+        "descr": "TRÈS FACILE ! Une fois que vous vous êtes inscrit dans l'espace membres en remplissant un simple formulaire, le guide vous expliquera chaque étape de la Formule Française... Il n'y a pas de configuration compliquée !"
+      },
+      {
+        "title": "Qu'en est-il du service d'assistance ?",
+        "descr": "L'équipe du service d'assistance est à votre service 7 jours sur 7 et 24 heures sur 24. Nous avons aussi un service d'assistance par e-mail et même par chat en direct dans l'espace membres où nos agents sont prêts à vous aider à tout moment ! À deux heures du matin ? PAS DE PROBLÈME !"
+      }
+    ],
+
+    "footerCopyright": "Copyright 2018 La Formule Française. Tous droits réservés.",
+    "footerCopyright2": "Risk warning : Le trading des CFD peut entraîner des pertes d'argent importantes",
+    "footerMenuItems": [
+      {
+        "name": "Clause de non responsabilité gouvernementale"
+      },
+      {
+        "name": "Politique de confidentialité"
+      },
+      {
+        "name": "Conditions"
+      },
+      {
+        "name": "Clause de non responsabilité sur les gains"
+      },
+      {
+        "name": "Politique antipourriel (spam)"
+      }
     ]
 
   }

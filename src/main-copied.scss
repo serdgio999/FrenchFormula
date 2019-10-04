@@ -1705,6 +1705,7 @@ span.bigred {
     font-weight: bold;
     text-decoration: none;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .faqs .faqs-inner .panel-default > .panel-heading {
@@ -1717,12 +1718,13 @@ span.bigred {
     border-color: transparent;
 }
 
-.faqs .faqs-inner .panel-group .panel-heading + .panel-collapse > .list-group, .faqs .faqs-inner .panel-group .panel-heading + .panel-collapse > .panel-body {
+.faqs .faqs-inner .panel-group .panel-collapse > .panel-body {
     border: 1px solid #bcbcbc;
     background-color: #f3f3f3;
 }
 
-.faqs .faqs-inner #accordion .panel-title > a.accordion-toggle::before, .faqs .faqs-inner #accordion a[data-toggle="collapse"]::before {
+.faqs .faqs-inner #accordion .panel-title > a.accordion-toggle::before,
+.faqs .faqs-inner #accordion a[data-toggle="collapse"]::before {
     content: "\f056";
     float: left;
     font-family: FontAwesome;
@@ -1756,12 +1758,12 @@ span.bigred {
     font-size: 26px;
 }
 
-.faqs .faqs-inner #accordion .panel-title > a.accordion-toggle::before, .faqs .faqs-inner #accordion a[data-toggle="collapse"]::before {
+.faqs .faqs-inner #accordion .active.card-header .panel-title > a::before {
     content: "\f146";
     color: #e80808;
 }
 
-.faqs .faqs-inner #accordion .panel-title > a.accordion-toggle.collapsed::before, .faqs .faqs-inner #accordion a.collapsed[data-toggle="collapse"]::before {
+.faqs .faqs-inner #accordion  .card-header .panel-title > a::before {
     content: "\f0fe";
     color: #003188;
 }
@@ -2843,6 +2845,7 @@ span.fb_ctime {
     .faqs .faqs-inner #accordion .panel-title > a {
         padding: 10px 20px 10px 25px;
         font-size: 16px;
+        cursor: pointer;
     }
     .faqs .faqs-inner #accordion .panel-title > a.accordion-toggle::before, .faqs .faqs-inner #accordion a[data-toggle="collapse"]::before, .faqs .faqs-inner #accordion .panel-title > a.accordion-toggle.collapsed::before, .faqs .faqs-inner #accordion a.collapsed[data-toggle="collapse"]::before {
         top: 13px;

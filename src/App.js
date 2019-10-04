@@ -68,7 +68,7 @@ export default class App extends ReactQueryParams {
         if (this.state.page === 'main') {
             return (
                 <div className='App'>
-                    <TopSection form={this.state.leadData} handlePassSync={this.handlePassSync}
+                    <TopSection form={this.state.leadData}
                                 countryCode={this.props.countryCode}
                                 handleStep={this.handleStep} step={this.state.step} handleSubmit={this.handleSubmit}
                                 pageHandler={this.pageHandler}
@@ -77,13 +77,13 @@ export default class App extends ReactQueryParams {
                                 validateParams={this.props.validateParams}/>
                     <MidSection languageManager={this.props.languageManager}
                                 validateParams={this.props.validateParams}/>
-                    {/*<BottomSection form={this.state.leadData} handlePassSync={this.handlePassSync}*/}
-                    {/*               countryCode={this.props.countryCode}*/}
-                    {/*               handleStep={this.handleStep} step={this.state.step} handleSubmit={this.handleSubmit}*/}
-                    {/*               pageHandler={this.pageHandler}*/}
-                    {/*               handleForward={this.handleForward}*/}
-                    {/*               languageManager={this.props.languageManager}*/}
-                    {/*               validateParams={this.props.validateParams}/>*/}
+                    <BottomSection form={this.state.leadData}
+                                   countryCode={this.props.countryCode}
+                                   handleStep={this.handleStep} step={this.state.step} handleSubmit={this.handleSubmit}
+                                   pageHandler={this.pageHandler}
+                                   handleForward={this.handleForward}
+                                   languageManager={this.props.languageManager}
+                                   validateParams={this.props.validateParams}/>
                 </div>
             )
         }

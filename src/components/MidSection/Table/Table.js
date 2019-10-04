@@ -20,6 +20,9 @@ export default class Table extends Component {
         let languageManager = this.props.languageManager();
         var testArr = [];
         testArr.push(languageManager.tableList);
+        this.setState({
+            tableArr: testArr[0]
+        })
 
         const _this = this;
         this.timer = setInterval(function(){
@@ -31,7 +34,7 @@ export default class Table extends Component {
                 tableArr: testArr[0],
                 random: random
             })
-        },3500)
+        },4500)
     }
     componentWillUnmount() {
         clearInterval(this.timer);
@@ -44,7 +47,7 @@ export default class Table extends Component {
             <div className="Table verified-results">
                 <div className="arrow-cus container">
                     <div className="verified-results-inner">
-                        <h3 id="live_results">Résultats éprouvés par des tiers !</h3>
+                        <h3 id="live_results">{languageManager.tableName}</h3>
                         <div className="table-responsive">
                             <table className="table table-striped">
                                 <thead>
