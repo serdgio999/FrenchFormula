@@ -184,14 +184,12 @@
 
     .selected-flag {
         background: transparent !important;
-        width: 25% !important;
-
-        @media (max-width: 1200px) {
-            width: 30% !important;
-        }
-
+        width: 30% !important;
         @media (max-width: 768px) {
             width: 35% !important;
+        }
+        .selected-dial-code {
+            padding-left: 0 !important;
         }
     }
 
