@@ -34,7 +34,6 @@ export default class Regform extends Component {
         this.setState({
             phone_country_prefix: '+' + country.dialCode
         });
-        //this.state.phone_country_prefix = '+' + country.dialCode;
     }
 
     handleForward(e) {
@@ -80,7 +79,6 @@ export default class Regform extends Component {
                     phone_number:  phone_number,
                     phone_country_prefix: this.state.phone_country_prefix
                 };
-
                 let submitResponse = this.props.validateParams(paramsToValidate);
                 if (submitResponse.success) {
                     this.props.handleStep(this.props.step + 1);
@@ -160,9 +158,9 @@ export default class Regform extends Component {
                 <div className={"Regform startFrom" + (this.props.class ? this.props.class : '')} ref={this.setTextInputRef}>
                     <div className='inner'>
                         <div className='form-wrapper one'>
-                            {/*{this.state.errors && <div style={{color: '#ff3215'}}>*/}
-                            {/*    {this.state.errors[0]}*/}
-                            {/*</div>}*/}
+                            {this.state.errors && <div style={{color: '#ff3215'}}>
+                                {this.state.errors[0]}
+                            </div>}
                             <input className="inputfield fname" type="text" name="first_name" placeholder={languageManager.fname} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
                             {/*<input className="inputfield lname" type="text" name="last_name" placeholder={languageManager.lname} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>*/}
                             <input className="inputfield email" type="text" name="email" placeholder={languageManager.email} autoComplete='off' onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
@@ -184,9 +182,9 @@ export default class Regform extends Component {
                             </div>
                         </div>
                         <div className='form-wrapper three'>
-                            {/*{this.state.errors && <div style={{color: '#ff3215'}}>*/}
-                            {/*    {this.state.errors[0]}*/}
-                            {/*</div>}*/}
+                            {this.state.errors && <div style={{color: '#ff3215'}}>
+                                {this.state.errors[0]}
+                            </div>}
                             <IntlTelInput
                                 preferredCountries={[this.props.countryCode]}
                                 containerClassName="intl-tel-input"
@@ -200,11 +198,12 @@ export default class Regform extends Component {
                                     })
                                 }}
                             />
-                            <button onClick={this.handleForward.bind(this)} className='start' >{languageManager.button_last}</button>
+                            <button onClick={this.handleForward.bind(this)} className='btncustms btncustms1' >{languageManager.buttonSubmit}</button>
+                            <div className="btnBBox">
+                                <span className="limittime">{languageManager.underSubmitBtn}</span>
+                            </div>
+
                         </div>
-                    </div>
-                    <div className="error">
-                        {/*<Mark className='excl'/><span></span>*/}
                     </div>
                 </div>
             )

@@ -6,12 +6,7 @@
     justify-content: center;
     text-align: left;
     color: #333;
-    &.last-step {
-        height: 100%;
-        .inner {
-            margin-top: -130px;
-        }
-    }
+
     .inner {
         max-width: 360px;
         display: flex;
@@ -23,12 +18,16 @@
         }
     }
     .form-wrapper {
-        overflow: hidden;
+        //overflow: hidden;
         display: flex;
         flex-direction: column;
         min-width: 100%;
         transition: margin 0.3s ease-out;
         justify-content: center;
+        &.one,
+        &.two {
+            overflow: hidden !important;
+        }
         &.step {
             margin-left: -100%;
         }
@@ -53,62 +52,19 @@
             font-style: italic;
             margin-bottom: 15px;
         }
-    }
-
-
-    & .agreement {
-        position: sticky;
-        font-weight: 400;
-        display: none;
-        margin: 0.4vw 0;
-        /*overflow: hidden;*/
-        box-sizing: border-box;
-        /*word-break: break-all;*/
-        word-wrap: break-word;
-       /* overflow-wrap: break-word;
-        hyphens: auto;*/
-
-        @media (max-width: 768px) {
-            margin: 2vw 0;
-            height: 10vw;
-        }
-
-        & span {
-            font-size: 0.61vw;
-            display: block;
-            line-height: 1.2;
-           /* overflow: hidden;*/
-            width: 100%;
-
-            @media (max-width: 1200px) {
-                font-size: 0.92vw;
-            }
-
-            @media (max-width: 768px) {
-                font-size: 2.92vw;
-                text-align: left;
-            }
-        }
-
-        & input[type=checkbox] {
-            margin: 0.24vw 0.4vw 0 0;
-            min-width: 0.72vw;
-            min-height: 0.72vw;
-            display: block;
-
-            @media (max-width: 1200px) {
-                min-width: 1.3vw;
-                height: 1.3vw;
-            }
-
-            @media (max-width: 768px) {
-                min-width: 3.3vw;
-                height: 3.3vw;
-                margin: 0.24vw 1vw 0 0;
+        .req {
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            li {
+                font-weight: 700;
+                color: #fff;
+                &.ok {
+                    color: #1fc51f;
+                }
             }
         }
     }
-
     & .start {
         display: block;
         width: 100%;
@@ -271,8 +227,11 @@
     }
 
     .intl-tel-input {
-        margin-bottom: 4vw;
+        margin-bottom: 2vw;
         color: #333;
+        input {
+            width: 100%;
+        }
     }
 }
 
