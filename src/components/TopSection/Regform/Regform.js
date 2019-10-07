@@ -4,6 +4,8 @@ import IntlTelInput from 'react-intl-tel-input'
 import 'react-intl-tel-input/dist/main.css'
 import logo from '../Header/images/logo.png'
 
+var localName  = "",
+    localEmail = "";
 
 export default class Regform extends Component {
     constructor(props) {
@@ -18,7 +20,9 @@ export default class Regform extends Component {
             agree_1: true,
             agree_2: true,
             phone_country_prefix: "",
-            errorIndexes: [0,1,2,3]
+            errorIndexes: [0,1,2,3],
+            errors: [],
+            testName: ""
         };
 
         this.setTextInputRef = element => {
@@ -40,39 +44,43 @@ export default class Regform extends Component {
         let form = e.target.parentElement;
         let paramsToValidate = {};
 
-        // Step 1 or 2
-        if(this.props.step === 1 || this.props.step === 2){
-            // Step 1
-            if(this.props.step === 1){
-                paramsToValidate = {
-                    email: this.state.email,
-                    first_name: this.state.first_name,
-                    // last_name: this.state.last_name,
-                    agree_2: this.state.agree_2
-                };
-            }
-            // Step 2
-            else if (this.props.step === 2) {
-                paramsToValidate = {
-                    password: this.state.password
-                };
-            }
+        if(this.props.step === 1) {
+            paramsToValidate = {
+                email: this.state.email,
+                first_name: this.state.first_name,
+                //last_name: this.state.last_name,
+                agree_2: this.state.agree_2
+            };
 
             let submitResponse = this.props.validateParams(paramsToValidate);
+
             if (submitResponse.success) {
                 this.props.handleForward(paramsToValidate);
                 this.props.handleStep(this.props.step + 1);
-            }
-            else {
+                this.props.handleChangePage();
+
+                //Set Object to localstorage
+                localStorage.setItem('paramsToValidate', JSON.stringify(paramsToValidate));
+                //Get Items from LocalStorage
+                let data = JSON.parse(localStorage.getItem("paramsToValidate"));
+                localName = data.first_name;
+                localEmail = data.email;
+                //window.history.pushState("","", "secondpage")
+            } else {
                 this.setState({
                     errors: submitResponse.errors
                 })
             }
         }
-        // Step 3
-        else if (this.props.step === 3) {
+        // Step 2
+        else if (this.props.step === 2) {
             let tel = form.querySelector('.tel'),
                 phone_number = tel.value;
+            if(!this.phoneValidate(phone_number)) {
+                this.setState({
+                    errors: ["Enter only numbers"]
+                })
+            }
 
             if(phone_number.length > 3 ) {
                 paramsToValidate = {
@@ -85,10 +93,11 @@ export default class Regform extends Component {
                     this.props.handleSubmit(paramsToValidate);
                 }
             }
-            else {
-                this.handleBackwards();
-            }
         }
+    }
+
+    phoneValidate = (value) => {
+        return !/[^0-9\-\/]/.test(value);
     }
 
     handleBackwards() {
@@ -125,35 +134,13 @@ export default class Regform extends Component {
 
     handleStepChange = (name, value) => {
         let errors = null;
-        if (name === 'password') {
-            const submitResponse = this.props.validateParams({
-                password: value
-            });
-
-            let submitErrs = [];
-            let staticErrors = [
-                "The password must be 8 characters long",
-                "Must contain at least 1 small letter",
-                "Must contain at least 1 capital letter",
-                "Must contain at least 1 number",
-            ]
-
-            submitErrs.push(submitResponse.errors);
-
-            const errorIndexes = submitErrs[0].reduce((errorsIndexesArray, error) => {
-                const errorIndex = staticErrors.indexOf(error);
-                errorsIndexesArray.push(errorIndex);
-                return errorsIndexesArray;
-            }, []);
-            this.setState({ errorIndexes });
-        }
         this.setState({[name]: value, errors});
     };
 
     render() {
         let languageManager = this.props.languageManager();
 
-        if (this.props.step <= 3) {
+        if (this.props.step <= 2) {
             return (
                 <div className={"Regform startFrom" + (this.props.class ? this.props.class : '')} ref={this.setTextInputRef}>
                     <div className='inner'>
@@ -163,41 +150,61 @@ export default class Regform extends Component {
                             </div>}
                             <input className="inputfield fname" type="text" name="first_name" placeholder={languageManager.fname} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
                             {/*<input className="inputfield lname" type="text" name="last_name" placeholder={languageManager.lname} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>*/}
-                            <input className="inputfield email" type="text" name="email" placeholder={languageManager.email} autoComplete='off' onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
+                            <input className="inputfield email" type="text" name="email" placeholder={languageManager.email} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
                             <div className="btnBBox">
                                 <button onClick={this.handleForward.bind(this)} className="btncustms btncustms1">{languageManager.buttonSubmit}</button>
                                 <span className="limittime">{languageManager.underSubmitBtn}</span>
                             </div>
                         </div>
+                        {/*<div className='form-wrapper two'>*/}
+                        {/*    <input className="inputfield pass" type="password" maxLength="8" onChange={(e) => this.handleStepChange(e.target.name, e.target.value)} name="password" placeholder={languageManager.pass}/>*/}
+                        {/*    <ul className='req'>*/}
+                        {/*        {languageManager.passtest.map((li, index) => {*/}
+                        {/*            return (<li key={index} className={this.state.errorIndexes.includes(index) ? 'list' : 'ok'}>{li}</li>)*/}
+                        {/*        })}*/}
+                        {/*    </ul>*/}
+                        {/*    <div className="btnBBox">*/}
+                        {/*        <button onClick={this.handleForward.bind(this)} className="btncustms btncustms1">{languageManager.buttonSubmit}</button>*/}
+                        {/*        <span className="limittime">{languageManager.underSubmitBtn}</span>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                         <div className='form-wrapper two'>
-                            <input className="inputfield pass" type="password" maxLength="8" onChange={(e) => this.handleStepChange(e.target.name, e.target.value)} name="password" placeholder={languageManager.pass}/>
-                            <ul className='req'>
-                                {languageManager.passtest.map((li, index) => {
-                                    return (<li key={index} className={this.state.errorIndexes.includes(index) ? 'list' : 'ok'}>{li}</li>)
-                                })}
-                            </ul>
-                            <div className="btnBBox">
-                                <button onClick={this.handleForward.bind(this)} className="btncustms btncustms1">{languageManager.buttonSubmit}</button>
-                                <span className="limittime">{languageManager.underSubmitBtn}</span>
-                            </div>
-                        </div>
-                        <div className='form-wrapper three'>
                             {this.state.errors && <div style={{color: '#ff3215'}}>
                                 {this.state.errors[0]}
                             </div>}
-                            <IntlTelInput
-                                preferredCountries={[this.props.countryCode]}
-                                containerClassName="intl-tel-input"
-                                inputClassName="inputfield tel"
-                                autoPlaceholder={true}
-                                separateDialCode={true}
-                                onSelectFlag={this.handleSelectFlag}
-                                onPhoneNumberChange={(status, value, countryData, number, id) => {
-                                    this.setState({
-                                        phone_country_prefix: `${countryData.dialCode}`
-                                    })
-                                }}
-                            />
+                            <div className="startFrom reg">
+                                <div className="site_form">
+                                    <div className="row">
+                                        <div className="col-sm-6">
+                                            <input type="text" className="form-control" name="first_name" id="first_name" placeholder="First Name" value={localName}/>
+                                        </div>
+                                        <div className="col-sm-6">
+                                            <input type="text" className="form-control" id="last_name" name="last_name" placeholder="Last Name"/>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-sm-12">
+                                            <input type="email" className="form-control" name="email" id="email" placeholder="Email" value={localEmail}/>
+                                        </div>
+                                    </div>
+                                    <IntlTelInput
+                                        preferredCountries={[this.props.countryCode]}
+                                        containerClassName="intl-tel-input"
+                                        inputClassName="inputfield tel"
+                                        autoPlaceholder={true}
+                                        separateDialCode={true}
+                                        onSelectFlag={this.handleSelectFlag}
+                                        onPhoneNumberChange={(status, value, countryData, number, id) => {
+                                            this.setState({
+                                                phone_country_prefix: `${countryData.dialCode}`
+                                            })
+                                        }}
+                                    />
+                                </div>
+
+                            </div>
+
+
                             <button onClick={this.handleForward.bind(this)} className='btncustms btncustms1' >{languageManager.buttonSubmit}</button>
                             <div className="btnBBox">
                                 <span className="limittime">{languageManager.underSubmitBtn}</span>

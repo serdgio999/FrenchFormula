@@ -2119,18 +2119,23 @@ span.fb_ctime {
     margin: -9px 2px -20px 0;
 }
 
-.startFrom .form-control {
+.startFrom .form-control,
+.startFrom .inputfield {
     height: 42px;
     border-color: #cccccc;
     background-color: rgb(255, 255, 255);
     padding: 10px 15px;
     color: #555555;
-    border-radius: 8px;
+    border-radius: 0 !important;
     text-align: center;
     font-size: 16px;
     font-weight: 500;
     font-style: italic;
 }
+.lastForm .reg .intl-tel-input {
+    width: 100% !important;
+}
+
 
 .startFrom .btncustms {
     margin-top: 15px;
@@ -2261,10 +2266,6 @@ span.fb_ctime {
 }
 
 /*========*/
-.startFrom.reg {
-    padding: 10px 18px;
-}
-
 .startFrom.reg .btncustms {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -2274,8 +2275,23 @@ span.fb_ctime {
     font-size: 32px;
 }
 
-.startFrom.reg .form-control {
+.startFrom.reg .row {
+    margin: 0 !important;
+}
+
+.startFrom.reg .intl-tel-input {
+    width: 100% !important;
+}
+
+.startFrom.reg .form-control,
+.startFrom.reg .inputfield,
+.startFrom.reg .inputfield .selected-dial-code {
     text-align: left;
+    font-weight: 700;
+
+}
+.startFrom.reg .inputfield {
+    border: none !important;
 }
 
 .startFrom.reg h5 {
@@ -3358,4 +3374,7 @@ span.fb_ctime {
 
 .popwindow a:hover {
     color: #ffd507 !important;
+}
+.site_form .col-sm-6, .site_form .col-sm-12{
+    padding: 0;
 }

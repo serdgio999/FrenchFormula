@@ -50,9 +50,11 @@ export default class TopSection extends Component {
                                         countryCode={this.props.countryCode}
                                         languageManager={this.props.languageManager}
                                         handleStep={this.props.handleStep}
+                                        handleChangePage={this.props.handleChangePage}
                                         handleForward={this.props.handleForward}
                                         handleSubmit={this.props.handleSubmit}
                                         step={this.props.step}
+                                        page={this.props.page}
                                         validateParams={this.props.validateParams}/>
 
                                     <div className="startImages">

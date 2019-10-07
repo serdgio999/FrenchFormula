@@ -5,7 +5,6 @@ export default class BottomSection extends Component {
     constructor(props) {
         super(props);
     }
-
     render() {
         let languageManager = this.props.languageManager();
         return (

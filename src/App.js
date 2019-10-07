@@ -12,6 +12,7 @@ import * as Pages from './pages'
 export default class App extends ReactQueryParams {
     componentDidMount() {
         new WOW.WOW().init();
+        this.handleChangePage();
     }
 
     constructor(props) {
@@ -34,6 +35,10 @@ export default class App extends ReactQueryParams {
             default:
                 this.setState({page: 'main'});
                 break;
+            case 'second':
+                this.setState({page: Pages.terms});
+                alert("Second Page")
+                break;
             case 'terms':
                 this.setState({page: Pages.terms});
                 break;
@@ -52,6 +57,15 @@ export default class App extends ReactQueryParams {
         }
     };
 
+    handleChangePage = () => {
+        setTimeout(()=> {
+            if(this.state.step === 2) {
+                this.setState({page: "second"})
+            }
+        }, 10);
+    };
+
+
     handleStep = (step) => {
         this.setState({step})
     };
@@ -62,7 +76,10 @@ export default class App extends ReactQueryParams {
 
     handleSubmit = (params) => {
         this.props.onSubmit(params)
-            .then(() => this.setState({ step: 1 }))
+            .then(() => this.setState({
+                step: 1,
+                page: 'main'
+            }))
     };
 
     render() {
@@ -72,6 +89,7 @@ export default class App extends ReactQueryParams {
                     <TopSection form={this.state.leadData}
                                 countryCode={this.props.countryCode}
                                 handleStep={this.handleStep} step={this.state.step} handleSubmit={this.handleSubmit}
+                                handleChangePage={this.handleChangePage} page={this.state.page}
                                 pageHandler={this.pageHandler}
                                 handleForward={this.handleForward}
                                 languageManager={this.props.languageManager}
@@ -85,6 +103,28 @@ export default class App extends ReactQueryParams {
                                    handleForward={this.handleForward}
                                    languageManager={this.props.languageManager}
                                    validateParams={this.props.validateParams}/>
+                </div>
+            )
+        } else if (this.state.page === 'second') {
+            return (
+                <div className='App'>
+                    <h1>Hello <br /> World</h1>
+                    <TopSection form={this.state.leadData}
+                                countryCode={this.props.countryCode}
+                                handleStep={this.handleStep} step={this.state.step} handleSubmit={this.handleSubmit}
+                                pageHandler={this.pageHandler}
+                                handleForward={this.handleForward}
+                                languageManager={this.props.languageManager}
+                                validateParams={this.props.validateParams}/>
+                    {/*<MidSection languageManager={this.props.languageManager}*/}
+                    {/*            validateParams={this.props.validateParams}/>*/}
+                    {/*<BottomSection form={this.state.leadData}*/}
+                    {/*               countryCode={this.props.countryCode}*/}
+                    {/*               handleStep={this.handleStep} step={this.state.step} handleSubmit={this.handleSubmit}*/}
+                    {/*               pageHandler={this.pageHandler}*/}
+                    {/*               handleForward={this.handleForward}*/}
+                    {/*               languageManager={this.props.languageManager}*/}
+                    {/*               validateParams={this.props.validateParams}/>*/}
                 </div>
             )
         }
