@@ -1050,7 +1050,7 @@ h6.tagline {
 .whoIAm {
     text-align: center;
     padding: 40px 0 0 0;
-    background-image: url("../src/components/TopSection/About/images/bgwhoim.jpg");
+    background-image: url("../src/components/MidSection/About/images/bgwhoim.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -1420,7 +1420,7 @@ span.bigred {
 
 .success-stories2 {
     padding: 50px 0;
-    background: url('../src/components/TopSection/Gallery/images/bg-stories2.jpg');
+    background: url('../src/components/MidSection/Gallery/images/bg-stories2.jpg');
     background-size: cover;
 }
 
@@ -1577,7 +1577,7 @@ span.bigred {
 .verified-results {
     padding: 50px 0;
     background-color: #fff;
-    background: url('../src/components/MidSection/Table/images/bgupdates.jpg');
+    background: url('../src/components/BottomSection/Table/images/bgupdates.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -2442,7 +2442,7 @@ span.fb_ctime {
 /*============*/
 .checkOut {
     text-align: center;
-    //background: url(../images/bgcheout.jpg?v=3) no-repeat center center/cover;
+    background: url("../src/components/SecondMidSection/images/bgcheout.jpg") no-repeat center center/cover;
     padding: 50px 0 114px 0;
 }
 
@@ -3126,7 +3126,7 @@ span.fb_ctime {
         margin-bottom: 0;
     }
     .whoIAm {
-        background-image: url("../src/components/TopSection/About/images/bgwhoim.jpg");
+        background-image: url("../src/components/MidSection/About/images/bgwhoim.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 29% 0;

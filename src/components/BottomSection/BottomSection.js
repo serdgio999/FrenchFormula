@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import Faqs from "./Faqs/Faqs";
+import SocialLine from "./SocialLine/SocialLine";
+import Table from "./Table/Table";
 
 export default class BottomSection extends Component {
     constructor(props) {
@@ -10,6 +12,8 @@ export default class BottomSection extends Component {
         return (
             <div className='BottomSection'>
 
+                <SocialLine languageManager={this.props.languageManager}/>
+                <Table  languageManager={this.props.languageManager}/>
                 <Faqs languageManager={this.props.languageManager}/>
 
                 <section className="footer">

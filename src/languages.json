@@ -355,6 +355,56 @@
       }
     ],
 
+    "stepsMidSection": [
+      {
+        "title": "REGISTRE",
+        "strong": "Félicitations!",
+        "descr": "Vous êtes maintenant dans l'espace membres ! Vous avez presque réservé votre place ! Pour terminer cette étape, vous devez créer votre compte gratuit"
+      },
+      {
+        "title": "DÉPÔT",
+        "strong": "Formule Française,",
+        "descr": " Une fois que vous avez créé votre comte vous aurez accès au programme de la Formule Française et serez presque prêt à démarrer !"
+      },
+      {
+        "title": "DÉBUT",
+        "strong": "",
+        "descr": " Il est bientôt temps de générer des profits ! Une dernière chose : vous devez déposer de l'argent sur votre compte pour commencer à trader ! Vous ne pourrez pas avoir de trades gagnants qui génèrent d'énormes profits si vous n'avez pas de fonds."
+      }
+    ],
+
+    "checkoutMidSectionTitle": "Allez dans « Mon compte de trading personnel EN DIRECT»",
+    "customerMidSectionTitle": "D'autres compte clients",
+    "customerList": [
+      {
+        "img": "norbert",
+        "name": "NORBERT\nGALLIBOT",
+        "dateTitle": "Date d'inscription :",
+        "date": "19 Mars 2018",
+        "priceTitle": "Profits générés à ce jour :",
+        "price": "212 450,00€",
+        "btnTitle": "Cliquer ici pour voir mon compte en direct"
+      },
+      {
+        "img": "jacques",
+        "name": "JACQUES\nTRABERT",
+        "dateTitle": "Date d'inscription :",
+        "date": "28 Mars 2018",
+        "priceTitle": "Profits générés à ce jour :",
+        "price": "196 201,00€",
+        "btnTitle": "Cliquer ici pour voir mon compte en direct"
+      },
+      {
+        "img": "denis",
+        "name": "DENIS\nBALLON",
+        "dateTitle": "Date d'inscription :",
+        "date": "15 Avril 2018",
+        "priceTitle": "Profits générés à ce jour :",
+        "price": "103 870,00€",
+        "btnTitle": "Cliquer ici pour voir mon compte en direct"
+      }
+    ],
+
     "footerCopyright": "Copyright 2018 La Formule Française. Tous droits réservés.",
     "footerCopyright2": "Risk warning : Le trading des CFD peut entraîner des pertes d'argent importantes",
     "footerMenuItems": [

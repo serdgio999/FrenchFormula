@@ -1,17 +1,17 @@
 import React, {Component} from 'react'
 
 //Facebook images
-import Marion from "../images/Marion.jpg";
-import Titouan from "../images/Titouan.jpg";
-import Baptisle from "../images/Baptisle.jpg";
+import Marion from "./images/Marion.jpg";
+import Titouan from "./images/Titouan.jpg";
+import Baptisle from "./images/Baptisle.jpg";
 
 //Twitter images
-import Gabriel from "../images/Gabriel.jpg";
-import Manon from "../images/Manon.jpg";
-import LeYasmine from "../images/LeYasmine.jpg";
-import Corentin from "../images/Corentin.jpg";
-import Mathis from "../images/Mathis.jpg";
-import Maeva from "../images/Maeva.jpg";
+import Gabriel from "./images/Gabriel.jpg";
+import Manon from "./images/Manon.jpg";
+import LeYasmine from "./images/LeYasmine.jpg";
+import Corentin from "./images/Corentin.jpg";
+import Mathis from "./images/Mathis.jpg";
+import Maeva from "./images/Maeva.jpg";
 
 export default class SocialLine extends Component {
     constructor(props) {

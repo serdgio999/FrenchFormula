@@ -2,8 +2,6 @@ import React, {Component} from 'react'
 
 import Header from './Header/Header'
 import Regform from './Regform/Regform'
-import About from "./About/About";
-import Gallery from "./Gallery/Gallery";
 
 //Images
 import firstIcon from './images/spon1.png'
@@ -67,10 +65,6 @@ export default class TopSection extends Component {
                         </div>
                     </div>
                 </section>
-
-                <About languageManager={this.props.languageManager}/>
-
-                <Gallery languageManager={this.props.languageManager}/>
 
             </div>
         )

@@ -4,6 +4,7 @@ import WOW from 'wowjs'
 
 import TopSection from './components/TopSection/TopSection'
 import MidSection from './components/MidSection/MidSection'
+import SecondMidSection from './components/SecondMidSection/SecondMidSection'
 import BottomSection from './components/BottomSection/BottomSection'
 
 // Pages
@@ -65,7 +66,6 @@ export default class App extends ReactQueryParams {
         }, 10);
     };
 
-
     handleStep = (step) => {
         this.setState({step})
     };
@@ -108,7 +108,6 @@ export default class App extends ReactQueryParams {
         } else if (this.state.page === 'second') {
             return (
                 <div className='App'>
-                    <h1>Hello <br /> World</h1>
                     <TopSection form={this.state.leadData}
                                 countryCode={this.props.countryCode}
                                 handleStep={this.handleStep} step={this.state.step} handleSubmit={this.handleSubmit}
@@ -116,15 +115,15 @@ export default class App extends ReactQueryParams {
                                 handleForward={this.handleForward}
                                 languageManager={this.props.languageManager}
                                 validateParams={this.props.validateParams}/>
-                    {/*<MidSection languageManager={this.props.languageManager}*/}
-                    {/*            validateParams={this.props.validateParams}/>*/}
-                    {/*<BottomSection form={this.state.leadData}*/}
-                    {/*               countryCode={this.props.countryCode}*/}
-                    {/*               handleStep={this.handleStep} step={this.state.step} handleSubmit={this.handleSubmit}*/}
-                    {/*               pageHandler={this.pageHandler}*/}
-                    {/*               handleForward={this.handleForward}*/}
-                    {/*               languageManager={this.props.languageManager}*/}
-                    {/*               validateParams={this.props.validateParams}/>*/}
+                    <SecondMidSection languageManager={this.props.languageManager}
+                                validateParams={this.props.validateParams}/>
+                    <BottomSection form={this.state.leadData}
+                                   countryCode={this.props.countryCode}
+                                   handleStep={this.handleStep} step={this.state.step} handleSubmit={this.handleSubmit}
+                                   pageHandler={this.pageHandler}
+                                   handleForward={this.handleForward}
+                                   languageManager={this.props.languageManager}
+                                   validateParams={this.props.validateParams}/>
                 </div>
             )
         }
