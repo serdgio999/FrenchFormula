@@ -14,7 +14,7 @@ export default class About extends Component {
         let languageManager = this.props.languageManager();
 
         return (
-            <section className="success-stories2 ">
+            <section className="success-stories2" id="gallery">
                 <div className="arrow-cus container">
                     <h4 id="success_stories">{languageManager.galleryTitle}</h4>
                     <div className="success-stories-inner2 text-center">

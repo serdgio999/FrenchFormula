@@ -26,6 +26,7 @@
         justify-content: center;
         &.one,
         &.two {
+            padding: 10px;
             overflow: hidden !important;
         }
         &.step {
@@ -51,6 +52,13 @@
             font-weight: 500;
             font-style: italic;
             margin-bottom: 15px;
+            &.tel {
+                width: 50%;
+                display: flex;
+                justify-content: flex-end;
+                margin-left: auto;
+                padding-left: 15px !important;
+            }
         }
         .req {
             padding: 0;
@@ -183,13 +191,40 @@
     }
 
     .selected-flag {
-        background: transparent !important;
-        width: 30% !important;
-        @media (max-width: 768px) {
-            width: 35% !important;
+        position: relative;
+        height: 100%;
+        padding: 0 0 0 8px;
+        top: 46px;
+        background: #fff !important;
+        z-index: 9999;
+        width: 100% !important;
+        &:before {
+            content: attr(title);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            font-size: 15px;
+            left: 0;
+            color: #555;
+            font-weight: 600;
+            font-style: italic;
+            line-height: 39px;
+            text-align: left;
+            padding-left: 16px;
+
         }
         .selected-dial-code {
-            padding-left: 0 !important;
+            position: absolute;
+            top: -47px;
+            width: 50%;
+            height: 42px;
+            left: 0;
+            line-height: 42px;
+            text-align: left;
+            padding-left: 15px !important;
+            background-color: #fff !important;
+            border-right: 2px solid #cecece;
+            pointer-events: none;
         }
     }
 
@@ -211,8 +246,9 @@
     .intl-tel-input.allow-dropdown.separate-dial-code .selected-dial-code {
         padding-left: 1.4vw;
         font-family: 'Open Sans', sans-serif;
-        font-size: 1vw;
-        font-weight: 400;
+        font-size: 15px;
+        font-weight: 700;
+        font-style: italic;
 
         @media (max-width: 1200px) {
             font-size: 1.4vw;
@@ -225,7 +261,7 @@
     }
 
     .intl-tel-input {
-        margin-bottom: 2vw;
+        margin-bottom: 2.25vw;
         color: #333;
         input {
             width: 100%;

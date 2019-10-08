@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import logo from './images/logo.png'
 import NathanLauren from './images/wilsnpng3.png'
 
-export default class Header extends Component {
+export default class HeaderSecond extends Component {
     render() {
         let languageManager = this.props.languageManager();
         return (
@@ -25,7 +25,7 @@ export default class Header extends Component {
                     <div className="container">
                         <ul>
                             {
-                            languageManager.menu_items.map((item, index) => {
+                            languageManager.menu_items_2.map((item, index) => {
                                 return (
                                     <li key={index}>
                                         <a href={item.link}>{item.name}</a>

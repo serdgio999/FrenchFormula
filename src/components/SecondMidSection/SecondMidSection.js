@@ -18,7 +18,7 @@ export default class SecondMidSection extends Component {
                         <a href="#" className="open-modal" data-index="1">
                             <img src={NathanProfileImg} alt=""/>
                         </a>
-                        <div className="chekOuStep">
+                        <div className="chekOuStep" id="customers">
                             <h4 id="members_account">{languageManager.customerMidSectionTitle}</h4>
                             <div className="row">
                                 <Customers languageManager={this.props.languageManager}/>

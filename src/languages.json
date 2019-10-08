@@ -2,19 +2,38 @@
   "en": {
     "menu_items": [
       {
+        "link": "#whoIAm",
         "name": "Qui suis-je ?"
       },
       {
+        "link": "#gallery",
         "name": "Exemples de réussite"
       },
       {
+        "link": "#how_it_works",
         "name": "Comment ça marche"
       },
       {
+        "link": "#table",
         "name": "Résultats en direct"
       },
       {
+        "link": "#faq",
         "name": "FAQ"
+      }
+    ],
+    "menu_items_2": [
+      {
+        "link": "#how_it_works",
+        "name": "C'est parti ! "
+      },
+      {
+        "link": "#customers",
+        "name": "Comptes de trading des membres actuels "
+      },
+      {
+        "link": "#social",
+        "name": "Voir les commentaires sur Facebook et Twitter en direct"
       }
     ],
     "formTitle": "COMMENCEZ TOUT DE SUITE!",

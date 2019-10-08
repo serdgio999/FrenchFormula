@@ -2,6 +2,8 @@ import React from 'react'
 import ReactQueryParams from 'react-query-params'
 import WOW from 'wowjs'
 
+import Header from "./components/TopSection/Header/Header";
+import HeaderSecond from "./components/TopSection/Header/HeaderSecond";
 import TopSection from './components/TopSection/TopSection'
 import MidSection from './components/MidSection/MidSection'
 import SecondMidSection from './components/SecondMidSection/SecondMidSection'
@@ -60,10 +62,20 @@ export default class App extends ReactQueryParams {
 
     handleChangePage = () => {
         setTimeout(()=> {
+            if(window.location.pathname === "/secondpage") {
+                this.setState({
+                    //step: 2,
+                    page: "second"
+                })
+            }
+            /*if(this.state.step === 1) {
+                window.history.pushState("","", "/")
+            }*/
             if(this.state.step === 2) {
                 this.setState({page: "second"})
             }
         }, 10);
+        console.log(this.state.step)
     };
 
     handleStep = (step) => {
@@ -79,13 +91,14 @@ export default class App extends ReactQueryParams {
             .then(() => this.setState({
                 step: 1,
                 page: 'main'
-            }))
+            }),window.history.pushState("","", "/"))
     };
 
     render() {
         if (this.state.page === 'main') {
             return (
                 <div className='App'>
+                    <Header languageManager={this.props.languageManager}/>
                     <TopSection form={this.state.leadData}
                                 countryCode={this.props.countryCode}
                                 handleStep={this.handleStep} step={this.state.step} handleSubmit={this.handleSubmit}
@@ -108,6 +121,7 @@ export default class App extends ReactQueryParams {
         } else if (this.state.page === 'second') {
             return (
                 <div className='App'>
+                    <HeaderSecond languageManager={this.props.languageManager}/>
                     <TopSection form={this.state.leadData}
                                 countryCode={this.props.countryCode}
                                 handleStep={this.handleStep} step={this.state.step} handleSubmit={this.handleSubmit}

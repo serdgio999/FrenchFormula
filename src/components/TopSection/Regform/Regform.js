@@ -22,7 +22,6 @@ export default class Regform extends Component {
             phone_country_prefix: "",
             errorIndexes: [0,1,2,3],
             errors: [],
-            testName: ""
         };
 
         this.setTextInputRef = element => {
@@ -40,6 +39,10 @@ export default class Regform extends Component {
         });
     }
 
+    phoneValidate = (value) => {
+        return !/[^0-9\-\/]/.test(value);
+    }
+
     handleForward(e) {
         let form = e.target.parentElement;
         let paramsToValidate = {};
@@ -48,7 +51,6 @@ export default class Regform extends Component {
             paramsToValidate = {
                 email: this.state.email,
                 first_name: this.state.first_name,
-                //last_name: this.state.last_name,
                 agree_2: this.state.agree_2
             };
 
@@ -65,7 +67,7 @@ export default class Regform extends Component {
                 let data = JSON.parse(localStorage.getItem("paramsToValidate"));
                 localName = data.first_name;
                 localEmail = data.email;
-                //window.history.pushState("","", "secondpage")
+                window.history.pushState("","", "secondpage")
             } else {
                 this.setState({
                     errors: submitResponse.errors
@@ -76,10 +78,12 @@ export default class Regform extends Component {
         else if (this.props.step === 2) {
             let tel = form.querySelector('.tel'),
                 phone_number = tel.value;
+
             if(!this.phoneValidate(phone_number)) {
                 this.setState({
                     errors: ["Enter only numbers"]
                 })
+                return this.state.errors
             }
 
             if(phone_number.length > 3 ) {
@@ -94,10 +98,6 @@ export default class Regform extends Component {
                 }
             }
         }
-    }
-
-    phoneValidate = (value) => {
-        return !/[^0-9\-\/]/.test(value);
     }
 
     handleBackwards() {
@@ -156,18 +156,6 @@ export default class Regform extends Component {
                                 <span className="limittime">{languageManager.underSubmitBtn}</span>
                             </div>
                         </div>
-                        {/*<div className='form-wrapper two'>*/}
-                        {/*    <input className="inputfield pass" type="password" maxLength="8" onChange={(e) => this.handleStepChange(e.target.name, e.target.value)} name="password" placeholder={languageManager.pass}/>*/}
-                        {/*    <ul className='req'>*/}
-                        {/*        {languageManager.passtest.map((li, index) => {*/}
-                        {/*            return (<li key={index} className={this.state.errorIndexes.includes(index) ? 'list' : 'ok'}>{li}</li>)*/}
-                        {/*        })}*/}
-                        {/*    </ul>*/}
-                        {/*    <div className="btnBBox">*/}
-                        {/*        <button onClick={this.handleForward.bind(this)} className="btncustms btncustms1">{languageManager.buttonSubmit}</button>*/}
-                        {/*        <span className="limittime">{languageManager.underSubmitBtn}</span>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
                         <div className='form-wrapper two'>
                             {this.state.errors && <div style={{color: '#ff3215'}}>
                                 {this.state.errors[0]}
@@ -201,15 +189,9 @@ export default class Regform extends Component {
                                         }}
                                     />
                                 </div>
-
                             </div>
 
-
-                            <button onClick={this.handleForward.bind(this)} className='btncustms btncustms1' >{languageManager.buttonSubmit}</button>
-                            <div className="btnBBox">
-                                <span className="limittime">{languageManager.underSubmitBtn}</span>
-                            </div>
-
+                            <button onClick={this.handleForward.bind(this)} className="submit sign-up">GET STARTED TODAY!</button>
                         </div>
                     </div>
                 </div>

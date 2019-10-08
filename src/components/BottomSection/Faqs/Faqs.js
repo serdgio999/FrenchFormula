@@ -19,7 +19,7 @@ export default class Faqs extends Component {
     render() {
         let languageManager = this.props.languageManager();
         return (
-            <section className="faqs">
+            <section className="faqs" id="faq">
                 <div className="container">
                     <div className="faqs-inner">
                         <h3 id="faq">

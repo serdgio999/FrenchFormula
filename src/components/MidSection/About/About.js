@@ -6,7 +6,7 @@ export default class About extends Component {
         let languageManager = this.props.languageManager();
 
         return (
-            <section className="whoIAm">
+            <section className="whoIAm" id="whoIAm">
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-5">

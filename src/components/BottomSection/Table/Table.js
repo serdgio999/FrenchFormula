@@ -44,7 +44,7 @@ export default class Table extends Component {
         let languageManager = this.props.languageManager();
 
         return(
-            <div className="Table verified-results">
+            <div className="Table verified-results" id="table">
                 <div className="arrow-cus container">
                     <div className="verified-results-inner">
                         <h3 id="live_results">{languageManager.tableName}</h3>

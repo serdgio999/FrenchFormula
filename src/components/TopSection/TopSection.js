@@ -19,8 +19,6 @@ export default class TopSection extends Component {
 
         return (
             <div className='TopSection'>
-                <Header languageManager={this.props.languageManager}/>
-
                 <section className="mainsec">
                     <div className="container ">
                         <div className="row ">

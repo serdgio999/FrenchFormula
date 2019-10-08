@@ -37,7 +37,7 @@ export default class SocialLine extends Component {
     render() {
         let languageManager = this.props.languageManager();
         return (
-            <section className="get-updates">
+            <section className="get-updates" id="social">
                 <div className="arrow-cus container">
                     <h4 className="text-center" id="feeds">{languageManager.socialTitle}</h4>
                     <div className="row">
