@@ -5,7 +5,6 @@ import Customers from "./Customers/Customers";
 import NathanProfileImg from "./images/checkuptt2.jpg"
 
 export default class SecondMidSection extends Component {
-
     render() {
         let languageManager = this.props.languageManager();
         return (

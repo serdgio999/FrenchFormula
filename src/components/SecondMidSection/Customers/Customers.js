@@ -27,12 +27,12 @@ export default class Customers extends Component {
                                 <img src={this.state.facebook_images[item.img]} alt=""/>
                             </div>
                             <h4 className="name">{item.name}</h4>
-                            <h6>Date d'inscription :</h6>
-                            <h5>19 Mars 2018</h5>
-                            <h6>Profits générés à ce jour :</h6>
-                            <h4 className="redtext">212 450,00€</h4>
+                            <h6>{item.dateTitle}</h6>
+                            <h5>{item.date}</h5>
+                            <h6>{item.priceTitle}</h6>
+                            <h4 className="redtext">{item.price}</h4>
                             <div className="btnCheck">
-                                <a className="btncustms open-modal" href="#" data-index="2">Cliquer ici pour voir mon compte en direct</a>
+                                <a className="btncustms open-modal" href="#" data-index="2">{item.btnTitle}</a>
                             </div>
                         </div>
                     </div>
