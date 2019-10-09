@@ -62,20 +62,16 @@ export default class App extends ReactQueryParams {
 
     handleChangePage = () => {
         setTimeout(()=> {
-            if(window.location.pathname === "/secondpage") {
+            /*if(window.location.pathname === "/secondpage") {
                 this.setState({
                     //step: 2,
                     page: "second"
                 })
-            }
-            /*if(this.state.step === 1) {
-                window.history.pushState("","", "/")
             }*/
             if(this.state.step === 2) {
                 this.setState({page: "second"})
             }
         }, 10);
-        console.log(this.state.step)
     };
 
     handleStep = (step) => {

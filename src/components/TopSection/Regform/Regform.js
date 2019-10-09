@@ -55,12 +55,10 @@ export default class Regform extends Component {
             };
 
             let submitResponse = this.props.validateParams(paramsToValidate);
-
             if (submitResponse.success) {
                 this.props.handleForward(paramsToValidate);
                 this.props.handleStep(this.props.step + 1);
                 this.props.handleChangePage();
-
                 //Set Object to localstorage
                 localStorage.setItem('paramsToValidate', JSON.stringify(paramsToValidate));
                 //Get Items from LocalStorage
@@ -76,8 +74,16 @@ export default class Regform extends Component {
         }
         // Step 2
         else if (this.props.step === 2) {
+            let submitResponse = this.props.validateParams(paramsToValidate);
             let tel = form.querySelector('.tel'),
                 phone_number = tel.value;
+
+            paramsToValidate.last_name = this.state.last_name;
+            paramsToValidate.phone_number =  phone_number;
+            paramsToValidate.phone_country_prefix =  "+" + this.state.phone_country_prefix
+
+            console.log(paramsToValidate);
+            console.log("Step2");
 
             if(!this.phoneValidate(phone_number)) {
                 this.setState({
@@ -85,13 +91,7 @@ export default class Regform extends Component {
                 })
                 return this.state.errors
             }
-
             if(phone_number.length > 3 ) {
-                paramsToValidate = {
-                    phone_number:  phone_number,
-                    phone_country_prefix: this.state.phone_country_prefix
-                };
-                let submitResponse = this.props.validateParams(paramsToValidate);
                 if (submitResponse.success) {
                     this.props.handleStep(this.props.step + 1);
                     this.props.handleSubmit(paramsToValidate);
@@ -164,15 +164,15 @@ export default class Regform extends Component {
                                 <div className="site_form">
                                     <div className="row">
                                         <div className="col-sm-6">
-                                            <input type="text" className="form-control" name="first_name" id="first_name" placeholder="First Name" value={localName}/>
+                                            <input type="text" className="form-control" name="first_name" id="first_name" placeholder="First Name" defaultValue={localName} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
                                         </div>
                                         <div className="col-sm-6">
-                                            <input type="text" className="form-control" id="last_name" name="last_name" placeholder="Last Name"/>
+                                            <input type="text" className="form-control" id="last_name" name="last_name" placeholder="Last Name" onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
                                         </div>
                                     </div>
                                     <div className="row">
                                         <div className="col-sm-12">
-                                            <input type="email" className="form-control" name="email" id="email" placeholder="Email" value={localEmail}/>
+                                            <input type="email" className="form-control" name="email" id="email" placeholder="Email" defaultValue={localEmail} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
                                         </div>
                                     </div>
                                     <IntlTelInput
@@ -182,6 +182,7 @@ export default class Regform extends Component {
                                         autoPlaceholder={true}
                                         separateDialCode={true}
                                         onSelectFlag={this.handleSelectFlag}
+                                        placeholder="Phone"
                                         onPhoneNumberChange={(status, value, countryData, number, id) => {
                                             this.setState({
                                                 phone_country_prefix: `${countryData.dialCode}`
