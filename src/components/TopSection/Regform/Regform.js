@@ -65,7 +65,7 @@ export default class Regform extends Component {
                 let data = JSON.parse(localStorage.getItem("paramsToValidate"));
                 localName = data.first_name;
                 localEmail = data.email;
-                window.history.pushState("","", "secondpage")н
+                window.history.pushState("","", "secondpage")
             } else {
                 this.setState({
                     errors: submitResponse.errors
