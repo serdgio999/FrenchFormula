@@ -80,7 +80,7 @@ export default class Regform extends Component {
 
             paramsToValidate.last_name = this.state.last_name;
             paramsToValidate.phone_number =  phone_number;
-            paramsToValidate.phone_country_prefix =  "+" + this.state.phone_country_prefix
+            paramsToValidate.phone_country_prefix =  this.state.phone_country_prefix
 
             console.log(paramsToValidate);
             console.log("Step2");

@@ -7,7 +7,6 @@ import Gallery from "./Gallery/Gallery";
 export default class MidSection extends Component {
     constructor(props) {
         super(props);
-        this.state = { }
     }
     render() {
         let languageManager = this.props.languageManager();

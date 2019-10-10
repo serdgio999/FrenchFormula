@@ -32,7 +32,7 @@ export default class Customers extends Component {
                             <h6>{item.priceTitle}</h6>
                             <h4 className="redtext">{item.price}</h4>
                             <div className="btnCheck">
-                                <a className="btncustms open-modal" href="#" data-index="2">{item.btnTitle}</a>
+                                <a className="btncustms open-modal" href="#">{item.btnTitle}</a>
                             </div>
                         </div>
                     </div>

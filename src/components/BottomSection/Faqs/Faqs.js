@@ -25,7 +25,6 @@ export default class Faqs extends Component {
                         <h3 id="faq">
                             {languageManager.faqsTitle}
                         </h3>
-
                         <div className="panel-group" id="accordion">
                             <Accordion defaultActiveKey="0">
                                 {

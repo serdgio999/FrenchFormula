@@ -4,7 +4,6 @@ import certificateImg from './images/sigimgg2.png'
 export default class About extends Component {
     render() {
         let languageManager = this.props.languageManager();
-
         return (
             <section className="whoIAm" id="whoIAm">
                 <div className="container">
@@ -41,4 +40,3 @@ export default class About extends Component {
         )
     }
 }
-

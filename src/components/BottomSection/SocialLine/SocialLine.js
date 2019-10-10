@@ -55,7 +55,7 @@ export default class SocialLine extends Component {
                                                        <span className="fb_name">
                                                            <strong>{item.name}</strong>
                                                        </span><br/>
-                                                        <span id="fb_curr_time_1" className="fb_ctime" sec="240">
+                                                        <span id="fb_curr_time_1" className="fb_ctime">
                                                            {item.timeAgo}
                                                        </span>
                                                     </p>
@@ -88,7 +88,7 @@ export default class SocialLine extends Component {
                                                         <span className="tw_name">
                                                             <strong>{item.name}</strong>
                                                         </span>
-                                                        <span id="tw_curr_time_4" className="tw_ctime" sec="240">{item.timeAgo}</span>
+                                                        <span id="tw_curr_time_4" className="tw_ctime">{item.timeAgo}</span>
                                                     </p>
                                                     <p className="contents">
                                                         {item.descr}

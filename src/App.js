@@ -13,11 +13,6 @@ import BottomSection from './components/BottomSection/BottomSection'
 import * as Pages from './pages'
 
 export default class App extends ReactQueryParams {
-    componentDidMount() {
-        new WOW.WOW().init();
-        this.handleChangePage();
-    }
-
     constructor(props) {
         super(props);
         if (window.location.host.indexOf("localhost") > -1) {
@@ -29,6 +24,11 @@ export default class App extends ReactQueryParams {
             step: 1,
             page: 'main'
         };
+    }
+
+    componentDidMount() {
+        new WOW.WOW().init();
+        this.handleChangePage();
     }
 
     //According to Readme
@@ -62,12 +62,6 @@ export default class App extends ReactQueryParams {
 
     handleChangePage = () => {
         setTimeout(()=> {
-            /*if(window.location.pathname === "/secondpage") {
-                this.setState({
-                    //step: 2,
-                    page: "second"
-                })
-            }*/
             if(this.state.step === 2) {
                 this.setState({page: "second"})
             }

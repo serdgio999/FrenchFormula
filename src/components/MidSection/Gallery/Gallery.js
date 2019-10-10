@@ -12,7 +12,6 @@ import seventhImage from './images/sucimg7.jpg'
 export default class About extends Component {
     render() {
         let languageManager = this.props.languageManager();
-
         return (
             <section className="success-stories2" id="gallery">
                 <div className="arrow-cus container">

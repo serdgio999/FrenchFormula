@@ -3,7 +3,6 @@ import React, {Component} from 'react'
 export default class Steps extends Component {
     constructor(props) {
         super(props);
-        this.state = { }
     }
     render() {
         let languageManager = this.props.languageManager();
@@ -32,8 +31,6 @@ export default class Steps extends Component {
                                     )
                                 })
                             }
-
-
                         </div>
                     </div>
                 </section>

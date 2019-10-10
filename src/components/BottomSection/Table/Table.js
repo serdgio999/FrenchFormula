@@ -25,7 +25,7 @@ export default class Table extends Component {
         })
 
         const _this = this;
-        this.timer = setInterval(function(){
+        this.timer = setInterval(() => {
             var random = _this.rand();
             testArr[0].unshift(testArr[0][random]);
             testArr[0].length = languageManager.tableList.length;
@@ -42,7 +42,6 @@ export default class Table extends Component {
 
     render() {
         let languageManager = this.props.languageManager();
-
         return(
             <div className="Table verified-results" id="table">
                 <div className="arrow-cus container">
