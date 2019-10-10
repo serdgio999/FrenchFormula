@@ -65,7 +65,7 @@ export default class Regform extends Component {
                 let data = JSON.parse(localStorage.getItem("paramsToValidate"));
                 localName = data.first_name;
                 localEmail = data.email;
-                window.history.pushState("","", "secondpage")
+                window.history.pushState("","", "secondpage")н
             } else {
                 this.setState({
                     errors: submitResponse.errors
@@ -78,12 +78,12 @@ export default class Regform extends Component {
             let tel = form.querySelector('.tel'),
                 phone_number = tel.value;
 
-            paramsToValidate.last_name = this.state.last_name;
-            paramsToValidate.phone_number =  phone_number;
-            paramsToValidate.phone_country_prefix =  this.state.phone_country_prefix
-
+            paramsToValidate = {
+                last_name: this.state.last_name,
+                phone_number: phone_number,
+                phone_country_prefix: this.state.phone_country_prefix
+            };
             console.log(paramsToValidate);
-            console.log("Step2");
 
             if(!this.phoneValidate(phone_number)) {
                 this.setState({
@@ -181,6 +181,7 @@ export default class Regform extends Component {
                                         inputClassName="inputfield tel"
                                         autoPlaceholder={true}
                                         separateDialCode={true}
+                                        autoComplete="nope"
                                         onSelectFlag={this.handleSelectFlag}
                                         placeholder="Phone"
                                         onPhoneNumberChange={(status, value, countryData, number, id) => {
@@ -191,7 +192,6 @@ export default class Regform extends Component {
                                     />
                                 </div>
                             </div>
-
                             <button onClick={this.handleForward.bind(this)} className="submit sign-up">GET STARTED TODAY!</button>
                         </div>
                     </div>
