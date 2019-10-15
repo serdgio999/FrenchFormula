@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import IntlTelInput from 'react-intl-tel-input'
 import 'react-intl-tel-input/dist/main.css'
 import logo from '../Header/images/logo.png'
+import {NavLink} from "react-router-dom";
 
 var localName  = "",
     localEmail = "";
@@ -53,20 +54,18 @@ export default class Regform extends Component {
                 first_name: this.state.first_name,
                 agree_2: this.state.agree_2
             };
-
             let submitResponse = this.props.validateParams(paramsToValidate);
             if (submitResponse.success) {
                 this.props.handleForward(paramsToValidate);
                 this.props.handleStep(this.props.step + 1);
-                this.props.handleChangePage();
                 //Set Object to localstorage
                 localStorage.setItem('paramsToValidate', JSON.stringify(paramsToValidate));
                 //Get Items from LocalStorage
                 let data = JSON.parse(localStorage.getItem("paramsToValidate"));
                 localName = data.first_name;
                 localEmail = data.email;
-                window.history.pushState("","", "secondpage")
             } else {
+                e.preventDefault();
                 this.setState({
                     errors: submitResponse.errors
                 })
@@ -79,7 +78,9 @@ export default class Regform extends Component {
                 phone_number = tel.value;
 
             paramsToValidate = {
+                first_name: this.state.first_name,
                 last_name: this.state.last_name,
+                email: this.state.email,
                 phone_number: phone_number,
                 phone_country_prefix: this.state.phone_country_prefix
             };
@@ -152,7 +153,7 @@ export default class Regform extends Component {
                             {/*<input className="inputfield lname" type="text" name="last_name" placeholder={languageManager.lname} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>*/}
                             <input className="inputfield email" type="text" name="email" placeholder={languageManager.email} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
                             <div className="btnBBox">
-                                <button onClick={this.handleForward.bind(this)} className="btncustms btncustms1">{languageManager.buttonSubmit}</button>
+                                <NavLink to="/secondpage" onClick={this.handleForward.bind(this)} className="btncustms btncustms1">{languageManager.buttonSubmit}</NavLink>
                                 <span className="limittime">{languageManager.underSubmitBtn}</span>
                             </div>
                         </div>
