@@ -24,14 +24,6 @@ export default class Regform extends Component {
             errorIndexes: [0,1,2,3],
             errors: [],
         };
-
-        this.setTextInputRef = element => {
-            this.currentForm = element;
-        };
-        this.currentForm = null;
-        this.infoBox = React.createRef();
-        this.handleBackwards = this.handleBackwards.bind(this);
-        this.handleSync = this.handleSync.bind(this);
     }
 
     handleSelectFlag = (num, country) => {
@@ -86,39 +78,18 @@ export default class Regform extends Component {
             };
             console.log(paramsToValidate);
 
-            if(!this.phoneValidate(phone_number)) {
-                this.setState({
-                    errors: ["Enter only numbers"]
-                })
-                return this.state.errors
-            }
             if(phone_number.length > 3 ) {
                 if (submitResponse.success) {
                     this.props.handleStep(this.props.step + 1);
                     this.props.handleSubmit(paramsToValidate);
                 }
+            } else if(!this.phoneValidate(phone_number)) {
+                this.setState({
+                    errors: ["Enter only numbers"]
+                })
+                return this.state.errors
             }
         }
-    }
-
-    handleBackwards() {
-        let forms = [...document.querySelectorAll('.Regform')];
-        forms.map(form => {
-            let steps = [...form.querySelectorAll('.form-wrapper')];
-            steps.map((step) => {
-                step.classList.remove('step');
-            })
-        });
-        this.props.handleStep(1);
-    }
-
-    handleSync(e) {
-        let input = e.target.value;
-        let inputClass = e.target.className;
-        let forms = [...document.querySelectorAll('.Regform')];
-        forms.map(form => {
-            form.getElementsByClassName(inputClass)[0].value = input;
-        })
     }
 
     componentDidUpdate() {
@@ -150,7 +121,6 @@ export default class Regform extends Component {
                                 {this.state.errors[0]}
                             </div>}
                             <input className="inputfield fname" type="text" name="first_name" placeholder={languageManager.fname} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
-                            {/*<input className="inputfield lname" type="text" name="last_name" placeholder={languageManager.lname} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>*/}
                             <input className="inputfield email" type="text" name="email" placeholder={languageManager.email} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
                             <div className="btnBBox">
                                 <NavLink to="/secondpage" onClick={this.handleForward.bind(this)} className="btncustms btncustms1">{languageManager.buttonSubmit}</NavLink>
@@ -193,7 +163,7 @@ export default class Regform extends Component {
                                     />
                                 </div>
                             </div>
-                            <button onClick={this.handleForward.bind(this)} className="submit sign-up">GET STARTED TODAY!</button>
+                            <button onClick={this.handleForward.bind(this)} className="submit sign-up">{languageManager.mainbuttonSubmit}</button>
                         </div>
                     </div>
                 </div>

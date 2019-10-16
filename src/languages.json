@@ -41,6 +41,7 @@
     "fname": "Entrez votre prénom",
     "email": "E-MAIL :",
     "buttonSubmit": "Créer votre compte gratuit",
+    "mainbuttonSubmit": "GET STARTED TODAY!",
     "underSubmitBtn": "-OFFRE À DURÉE LIMITÉE-",
     "passtest": [
       "The password must be 8 characters long.",
