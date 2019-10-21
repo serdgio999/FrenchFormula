@@ -32,7 +32,7 @@ export default class TopSection extends Component {
                                 </div>
                             </div>
                             <div className="col-lg-4">
-                                <div className="startFrom">
+                                <div className="startFrom center">
                                     <h4>
                                         {languageManager.formTitle}
                                     </h4>

@@ -58,6 +58,21 @@
                 justify-content: flex-end;
                 margin-left: auto;
                 padding-left: 15px !important;
+                @media (max-width: 768px) {
+                    width: 100%;
+                    position: relative;
+                    top: 47px;
+                }
+            }
+            &.fname,
+            &.email {
+                border-radius: 5px !important;
+                border: none !important;
+            }
+        }
+        #first_name {
+            @media (max-width: 768px) {
+                margin-bottom: 6px;
             }
         }
         .req {
@@ -198,6 +213,9 @@
         background: #fff !important;
         z-index: 9999;
         width: 100% !important;
+        @media (max-width: 768px) {
+            top: 94px;
+        }
         &:before {
             content: attr(title);
             width: 100%;
@@ -225,6 +243,9 @@
             background-color: #fff !important;
             border-right: 2px solid #cecece;
             pointer-events: none;
+            @media (max-width: 768px) {
+                top: -96px;
+            }
         }
     }
 
@@ -255,14 +276,19 @@
         }
 
         @media (max-width: 768px) {
+            width: 100% !important;
             padding-left: 3.4vw;
-            font-size: 4.8vw;
+            border-right: none !important;
+            font-size: 16px !important;
         }
     }
 
     .intl-tel-input {
         margin-bottom: 2.25vw;
         color: #333;
+        @media (max-width: 768px) {
+            margin-bottom: 12.25vw;
+        }
         input {
             width: 100%;
         }

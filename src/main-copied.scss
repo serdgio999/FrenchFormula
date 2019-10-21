@@ -2083,8 +2083,11 @@ span.fb_ctime {
     border-radius: 10px;
     text-align: center;
     max-width: 343px;
-    margin: 0 auto;
     padding: 10px 0 10px 0;
+}
+
+.startFrom.center {
+    margin: 0 auto;
 }
 
 .startFrom h4 {
@@ -2612,7 +2615,7 @@ span.fb_ctime {
         margin: 0 16px 0 0;
     }
     .startFrom {
-        margin-top: 20px;
+        //margin-top: 20px;
     }
     .mainsec {
         padding: 30px 0;

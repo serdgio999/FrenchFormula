@@ -49,6 +49,7 @@
       "Must contain at least 1 capital letter.",
       "Must contain at least 1 number."
     ],
+    "agreeTerms": "J'accepte d'être contacté et de recevoir tout matériel marketing par email, SMS et/ou par téléphone.",
     "about": [
       {
         "info_1": "Bonjour, je suis",
