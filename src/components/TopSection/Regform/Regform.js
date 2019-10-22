@@ -18,7 +18,7 @@ export default class Regform extends Component {
             check: false,
             password: "",
             tel: "",
-            agree_1: false,
+            agree_1: true,
             agree_2: true,
             phone_country_prefix: "",
             errorIndexes: [0,1,2,3],
@@ -71,9 +71,9 @@ export default class Regform extends Component {
                 phone_number = tel.value;
 
             paramsToValidate = {
-                first_name: this.state.first_name,
+                first_name: localName, //this.state.first_name,
                 last_name: this.state.last_name,
-                email: this.state.email,
+                email: localEmail,//this.state.email,
                 phone_number: phone_number,
                 phone_country_prefix: this.state.phone_country_prefix
             };
@@ -141,8 +141,8 @@ export default class Regform extends Component {
                                 <NavLink to="/secondpage" onClick={this.handleForward.bind(this)} className="btncustms btncustms1">{languageManager.buttonSubmit}</NavLink>
                                 <span className="limittime">{languageManager.underSubmitBtn}</span>
                             </div>
-                            <div className="form-group">
-                                <input type="checkbox" required="" name="agree1" onChange={() => this.handleToggle()}/>
+                            <div className="form-group" style={{color: '#666666'}}>
+                                <input type="checkbox" required="" checked={this.state.agree_1} name="agree1" onChange={() => this.handleToggle()}/>
                                 {languageManager.agreeTerms}
                             </div>
                         </div>
