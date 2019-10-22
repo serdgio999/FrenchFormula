@@ -180,7 +180,7 @@ export default class Regform extends Component {
                                         onPhoneNumberChange={(status, value, countryData, number, id) => {
                                             this.setState({
                                                 phone_country_prefix: `${countryData.dialCode}`,
-                                                dynamicNum: value.replace(/\s\s/, '')
+                                                dynamicNum: value.replace(/[^0-9]/g, '')
                                             })
                                         }}
                                         value = {this.state.dynamicNum}
