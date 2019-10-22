@@ -71,9 +71,9 @@ export default class Regform extends Component {
                 phone_number = tel.value;
 
             paramsToValidate = {
-                first_name: localName, //this.state.first_name,
+                first_name: this.state.first_name || localName,
                 last_name: this.state.last_name,
-                email: localEmail,//this.state.email,
+                email: this.state.email  || localEmail,
                 phone_number: phone_number,
                 phone_country_prefix: this.state.phone_country_prefix
             };
@@ -108,7 +108,10 @@ export default class Regform extends Component {
     handleStepChange = (name, value) => {
         let errors = null;
         //this.setState({[name]: value, errors});
-        this.setState({[name]: value.replace(/^\s+|\s/g, ''), errors})
+        console.log(value);
+        this.setState({
+            [name]: value.replace(/^\s+|\s/g, ''), errors,
+        })
     };
 
     handleToggle = () => {
@@ -157,7 +160,7 @@ export default class Regform extends Component {
                                             <input type="text" className="form-control" name="first_name" id="first_name" placeholder="First Name" defaultValue={localName} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
                                         </div>
                                         <div className="col-sm-6">
-                                            <input type="text" className="form-control" id="last_name" name="last_name" placeholder="Last Name" value={last_name} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
+                                            <input type="text" className="form-control" id="last_name" name="last_name" value={last_name} placeholder="Last Name" onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
                                         </div>
                                     </div>
                                     <div className="row">
