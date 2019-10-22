@@ -77,7 +77,7 @@ export default class Regform extends Component {
                 phone_number: phone_number,
                 phone_country_prefix: this.state.phone_country_prefix
             };
-            //console.log(paramsToValidate);
+            console.log(paramsToValidate);
 
             if(phone_number.length > 3 ) {
                 if (submitResponse.success) {
