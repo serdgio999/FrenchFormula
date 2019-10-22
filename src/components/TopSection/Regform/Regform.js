@@ -79,7 +79,7 @@ export default class Regform extends Component {
             };
             console.log(paramsToValidate);
 
-            if(phone_number.length > 3 ) {
+            if(phone_number.length > 5 && this.phoneValidate(phone_number)) {
                 if (submitResponse.success) {
                     this.props.handleStep(this.props.step + 1);
                     this.props.handleSubmit(paramsToValidate);
@@ -178,12 +178,10 @@ export default class Regform extends Component {
                                         onSelectFlag={this.handleSelectFlag}
                                         placeholder="Phone"
                                         onPhoneNumberChange={(status, value, countryData, number, id) => {
-                                            if(value.length <=15) {
-                                                this.setState({
-                                                    phone_country_prefix: `${countryData.dialCode}`,
-                                                    dynamicNum: value.replace(/\s\s/, '')
-                                                })
-                                            }
+                                            this.setState({
+                                                phone_country_prefix: `${countryData.dialCode}`,
+                                                dynamicNum: value.replace(/\s\s/, '')
+                                            })
                                         }}
                                         value = {this.state.dynamicNum}
                                     />
