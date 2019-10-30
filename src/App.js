@@ -16,11 +16,11 @@ import {BrowserRouter, Route} from "react-router-dom";
 export default class App extends ReactQueryParams {
     constructor(props) {
         super(props);
-        if (window.location.host.indexOf("localhost") > -1) {
+        /*if (window.location.host.indexOf("localhost") > -1) {
             this.setQueryParams({
                 validation: 3
             });
-        }
+        }*/
         this.state = {
             step: 1,
             page: 'main'

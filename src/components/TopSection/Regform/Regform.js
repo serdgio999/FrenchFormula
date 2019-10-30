@@ -108,7 +108,7 @@ export default class Regform extends Component {
     handleStepChange = (name, value) => {
         let errors = null;
         //this.setState({[name]: value, errors});
-        console.log(value);
+        //console.log(value);
         this.setState({
             [name]: value.replace(/^\s+|\s/g, ''), errors,
         })
