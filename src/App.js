@@ -34,11 +34,6 @@ export default class App extends ReactQueryParams {
                 step: 2
             })
         }
-        if(this.state.step === 2) {
-            this.setState({
-                page: 'secondpage'
-            })
-        }
     }
 
     //According to Readme
@@ -80,11 +75,11 @@ export default class App extends ReactQueryParams {
 
     handleSubmit = (params) => {
         this.props.onSubmit(params)
-            this.setState({
+        /*    this.setState({
                 step: 1,
                 page: 'main'
             })
-        window.history.go(-1);
+        window.history.go(-1);*/
     };
 
     render() {

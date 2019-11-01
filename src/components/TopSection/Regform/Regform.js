@@ -5,8 +5,15 @@ import 'react-intl-tel-input/dist/main.css'
 import logo from '../Header/images/logo.png'
 import {NavLink} from "react-router-dom";
 
+
 var localName  = "",
     localEmail = "";
+
+let data = JSON.parse(localStorage.getItem("paramsToValidate"));
+if(data != null) {
+    localName = data.first_name;
+    localEmail = data.email;
+}
 
 export default class Regform extends Component {
     constructor(props) {
@@ -48,6 +55,7 @@ export default class Regform extends Component {
                 agree_2: this.state.agree_1
             };
             let submitResponse = this.props.validateParams(paramsToValidate);
+            //console.log(submitResponse);
             if (submitResponse.success) {
                 this.props.handleForward(paramsToValidate);
                 this.props.handleStep(this.props.step + 1);
@@ -75,9 +83,9 @@ export default class Regform extends Component {
                 last_name: this.state.last_name,
                 email: this.state.email  || localEmail,
                 phone_number: phone_number,
-                phone_country_prefix: this.state.phone_country_prefix
+                phone_country_prefix: this.state.phone_country_prefix,
+                funnel_name: window.location.origin
             };
-            console.log(paramsToValidate);
 
             if(phone_number.length > 5 && this.phoneValidate(phone_number)) {
                 if (submitResponse.success) {
@@ -107,8 +115,6 @@ export default class Regform extends Component {
 
     handleStepChange = (name, value) => {
         let errors = null;
-        //this.setState({[name]: value, errors});
-        //console.log(value);
         this.setState({
             [name]: value.replace(/^\s+|\s/g, ''), errors,
         })
@@ -141,7 +147,7 @@ export default class Regform extends Component {
                             <input className="inputfield fname" type="text" name="first_name" value={first_name} placeholder={languageManager.fname} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
                             <input className="inputfield email" type="text" name="email" value={email} placeholder={languageManager.email} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
                             <div className="btnBBox form-group">
-                                <NavLink to="/secondpage" onClick={this.handleForward.bind(this)} className="btncustms btncustms1">{languageManager.buttonSubmit}</NavLink>
+                                <NavLink to="/secondpage/?validation=3&acc=97&camp=2" onClick={this.handleForward.bind(this)} className="btncustms btncustms1">{languageManager.buttonSubmit}</NavLink>
                                 <span className="limittime">{languageManager.underSubmitBtn}</span>
                             </div>
                             <div className="form-group" style={{color: '#666666'}}>
@@ -178,10 +184,12 @@ export default class Regform extends Component {
                                         onSelectFlag={this.handleSelectFlag}
                                         placeholder="Phone"
                                         onPhoneNumberChange={(status, value, countryData, number, id) => {
-                                            this.setState({
-                                                phone_country_prefix: `${countryData.dialCode}`,
-                                                dynamicNum: value.replace(/[^0-9]/g, '')
-                                            })
+                                            if(value.length<15) {
+                                                this.setState({
+                                                    phone_country_prefix: `${countryData.dialCode}`,
+                                                    dynamicNum: value.replace(/[^0-9]/g, '')
+                                                })
+                                            }
                                         }}
                                         value = {this.state.dynamicNum}
                                     />
