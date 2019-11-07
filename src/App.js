@@ -75,11 +75,10 @@ export default class App extends ReactQueryParams {
 
     handleSubmit = (params) => {
         this.props.onSubmit(params)
-        /*    this.setState({
+            .then(() => this.setState({
                 step: 1,
                 page: 'main'
-            })
-        window.history.go(-1);*/
+            }), window.history.go(-1));
     };
 
     render() {

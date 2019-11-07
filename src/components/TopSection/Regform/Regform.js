@@ -70,6 +70,7 @@ export default class Regform extends Component {
                 this.setState({
                     errors: submitResponse.errors
                 })
+
             }
         }
         // Step 2

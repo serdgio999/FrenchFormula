@@ -4,20 +4,21 @@ import {Accordion, Card} from "react-bootstrap";
 export default class Faqs extends Component {
     constructor(props) {
         super(props);
-        this.state = { isActive : [] } ;
-        this.toggleClass = this.toggleClass
+        this.state = {
+            isActive : 0,
+        } ;
     }
 
-    toggleClass = (e) => {
-        let temp = []
-        temp[e] = !temp[e]
-        this.setState({
-            isActive: temp
-        })
+    toggleClass = (index) => {
+        this.setState(({ isActive }) => ({
+            isActive: isActive === index ? -1 : index,
+        }));
     }
 
     render() {
+        const { isActive, prevIsActive } = this.state;
         let languageManager = this.props.languageManager();
+
         return (
             <section className="faqs" id="faq">
                 <div className="container">
@@ -32,8 +33,8 @@ export default class Faqs extends Component {
                                         return(
                                             <Card className="panel panel-default" key={index}>
                                                 <Accordion.Toggle as={Card.Header}
-                                                                  eventKey={index}
-                                                                  className={(this.state.isActive[index]) ? 'active' : 'non-active'}
+                                                                  eventKey={index === 0 ? '0' : index}
+                                                                  className={isActive === index  ? 'active' : ''}
                                                                   onClick={()=>this.toggleClass(index)}>
                                                     <h4 className="panel-title">
                                                         <a data-toggle="collapse" className="collapsed">
@@ -41,7 +42,7 @@ export default class Faqs extends Component {
                                                         </a>
                                                     </h4>
                                                 </Accordion.Toggle>
-                                                <Accordion.Collapse eventKey={index} className="panel-collapse">
+                                                <Accordion.Collapse eventKey={index === 0 ? '0' : index} className="panel-collapse">
                                                     <Card.Body className="panel-body">
                                                         <p>
                                                             {item.descr}
