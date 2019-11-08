@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {UserContext} from '../../../helpers/dataContext'
 
 import IntlTelInput from 'react-intl-tel-input'
 import 'react-intl-tel-input/dist/main.css'
@@ -33,6 +34,8 @@ export default class Regform extends Component {
         };
     }
 
+    static contextType = UserContext;
+
     handleSelectFlag = (num, country) => {
         this.setState({
             phone_country_prefix: '+' + country.dialCode
@@ -50,8 +53,8 @@ export default class Regform extends Component {
 
         if(this.props.step === 1) {
             paramsToValidate = {
-                email: this.state.email,
-                first_name: this.state.first_name,
+                email: this.context.email,
+                first_name: this.context.first_name,
                 agree_2: this.state.agree_1
             };
             let submitResponse = this.props.validateParams(paramsToValidate);
@@ -70,7 +73,6 @@ export default class Regform extends Component {
                 this.setState({
                     errors: submitResponse.errors
                 })
-
             }
         }
         // Step 2
@@ -80,9 +82,9 @@ export default class Regform extends Component {
                 phone_number = tel.value;
 
             paramsToValidate = {
-                first_name: this.state.first_name || localName,
+                first_name: this.context.first_name || localName,
                 last_name: this.state.last_name,
-                email: this.state.email  || localEmail,
+                email: this.context.email  || localEmail,
                 phone_number: phone_number,
                 phone_country_prefix: this.state.phone_country_prefix,
                 funnel_name: window.location.origin
@@ -145,8 +147,8 @@ export default class Regform extends Component {
                             {this.state.errors && <div style={{color: '#ff3215'}}>
                                 {this.state.errors[0]}
                             </div>}
-                            <input className="inputfield fname" type="text" name="first_name" value={first_name} placeholder={languageManager.fname} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
-                            <input className="inputfield email" type="text" name="email" value={email} placeholder={languageManager.email} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
+                            <input className="inputfield fname" type="text" name="first_name" placeholder={languageManager.fname} defaultValue={this.context.first_name} onChange={(e) => {this.context.getValueFromInputs(e)}}/>
+                            <input className="inputfield email" type="text" name="email" placeholder={languageManager.email} defaultValue={this.context.email} onChange={(e) => {this.context.getValueFromInputs(e)}}/>
                             <div className="btnBBox form-group">
                                 <NavLink to="/secondpage/?validation=3&acc=97&camp=2" onClick={this.handleForward.bind(this)} className="btncustms btncustms1">{languageManager.buttonSubmit}</NavLink>
                                 <span className="limittime">{languageManager.underSubmitBtn}</span>
@@ -164,7 +166,7 @@ export default class Regform extends Component {
                                 <div className="site_form">
                                     <div className="row">
                                         <div className="col-sm-6">
-                                            <input type="text" className="form-control" name="first_name" id="first_name" placeholder="First Name" defaultValue={localName} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
+                                            <input type="text" className="form-control" name="first_name" id="first_name" placeholder="First Name" defaultValue={this.context.first_name} onChange={(e) => {this.context.getValueFromInputs(e)}}/>
                                         </div>
                                         <div className="col-sm-6">
                                             <input type="text" className="form-control" id="last_name" name="last_name" value={last_name} placeholder="Last Name" onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
@@ -172,7 +174,7 @@ export default class Regform extends Component {
                                     </div>
                                     <div className="row">
                                         <div className="col-sm-12">
-                                            <input type="email" className="form-control" name="email" id="email" placeholder="Email" defaultValue={localEmail} onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
+                                            <input type="email" className="form-control" name="email" id="email" placeholder="Email" defaultValue={this.context.email} onChange={(e) => {this.context.getValueFromInputs(e)}}/>
                                         </div>
                                     </div>
                                     <IntlTelInput

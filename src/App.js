@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactQueryParams from 'react-query-params'
 import WOW from 'wowjs'
+import {UserContext} from './helpers/dataContext';
 
 import Header from "./components/TopSection/Header/Header";
 import HeaderSecond from "./components/TopSection/Header/HeaderSecond";
@@ -16,20 +17,17 @@ import {BrowserRouter, Route} from "react-router-dom";
 export default class App extends ReactQueryParams {
     constructor(props) {
         super(props);
-        /*if (window.location.host.indexOf("localhost") > -1) {
-            this.setQueryParams({
-                validation: 3
-            });
-        }*/
         this.state = {
             step: 1,
-            page: 'main'
+            page: 'main',
+            first_name: '',
+            email: ''
         };
     }
 
     componentDidMount() {
         new WOW.WOW().init();
-        if(window.location.pathname === '/secondpage') {
+        if (window.location.pathname === '/secondpage') {
             this.setState({
                 step: 2
             })
@@ -81,59 +79,70 @@ export default class App extends ReactQueryParams {
             }), window.history.go(-1));
     };
 
+    getValueFromInputs = e => {
+        this.setState({ [e.target.name] : e.target.value});
+    };
+
     render() {
-        return(
+        return (
             <BrowserRouter>
                 <div className='App'>
-                    <Route exact path='/' render={() =>
-                        <div>
-                            <HeaderSecond languageManager={this.props.languageManager}/>
-                            <TopSection form={this.state.leadData}
-                                        countryCode={this.props.countryCode}
-                                        handleStep={this.handleStep} step={this.state.step}
-                                        handleSubmit={this.handleSubmit}
-                                        pageHandler={this.pageHandler}
-                                        handleForward={this.handleForward}
-                                        languageManager={this.props.languageManager}
-                                        validateParams={this.props.validateParams}/>
-                            <MidSection languageManager={this.props.languageManager}
-                                        validateParams={this.props.validateParams}/>
-                            <BottomSection form={this.state.leadData}
-                                           countryCode={this.props.countryCode}
-                                           handleStep={this.handleStep} step={this.state.step}
-                                           handleSubmit={this.handleSubmit}
-                                           pageHandler={this.pageHandler}
-                                           handleForward={this.handleForward}
-                                           languageManager={this.props.languageManager}
-                                           validateParams={this.props.validateParams}/>
-                        </div>
-                    }
-                    />
+                    <UserContext.Provider value={{
+                        first_name: this.state.first_name,
+                        email: this.state.email,
+                        getValueFromInputs: this.getValueFromInputs
+                    }}>
+                        <Route exact path='/' render={() =>
+                            <div>
+                                <Header languageManager={this.props.languageManager}/>
+                                <TopSection form={this.state.leadData}
+                                            countryCode={this.props.countryCode}
+                                            handleStep={this.handleStep} step={this.state.step}
+                                            handleSubmit={this.handleSubmit}
+                                            pageHandler={this.pageHandler}
+                                            handleForward={this.handleForward}
+                                            languageManager={this.props.languageManager}
+                                            validateParams={this.props.validateParams}/>
+                                <MidSection languageManager={this.props.languageManager}
+                                            validateParams={this.props.validateParams}/>
+                                <BottomSection form={this.state.leadData}
+                                               countryCode={this.props.countryCode}
+                                               handleStep={this.handleStep} step={this.state.step}
+                                               handleSubmit={this.handleSubmit}
+                                               pageHandler={this.pageHandler}
+                                               handleForward={this.handleForward}
+                                               languageManager={this.props.languageManager}
+                                               validateParams={this.props.validateParams}/>
+                            </div>
+                        }
+                        />
+
+                        <Route path='/secondpage' render={() =>
+                            <div>
+                                <HeaderSecond languageManager={this.props.languageManager}/>
+                                <TopSection form={this.state.leadData}
+                                            countryCode={this.props.countryCode}
+                                            handleStep={this.handleStep} step={this.state.step}
+                                            handleSubmit={this.handleSubmit}
+                                            pageHandler={this.pageHandler}
+                                            handleForward={this.handleForward}
+                                            languageManager={this.props.languageManager}
+                                            validateParams={this.props.validateParams}/>
+                                <SecondMidSection languageManager={this.props.languageManager}
+                                                  validateParams={this.props.validateParams}/>
+                                <BottomSection form={this.state.leadData}
+                                               countryCode={this.props.countryCode}
+                                               handleStep={this.handleStep} step={this.state.step}
+                                               handleSubmit={this.handleSubmit}
+                                               pageHandler={this.pageHandler}
+                                               handleForward={this.handleForward}
+                                               languageManager={this.props.languageManager}
+                                               validateParams={this.props.validateParams}/>
+                            </div>
+                        }
+                        />
+                    </UserContext.Provider>
                 </div>
-                <Route path='/secondpage' render={() =>
-                    <div>
-                        <HeaderSecond languageManager={this.props.languageManager}/>
-                        <TopSection form={this.state.leadData}
-                                    countryCode={this.props.countryCode}
-                                    handleStep={this.handleStep} step={this.state.step}
-                                    handleSubmit={this.handleSubmit}
-                                    pageHandler={this.pageHandler}
-                                    handleForward={this.handleForward}
-                                    languageManager={this.props.languageManager}
-                                    validateParams={this.props.validateParams}/>
-                        <SecondMidSection languageManager={this.props.languageManager}
-                                          validateParams={this.props.validateParams}/>
-                        <BottomSection form={this.state.leadData}
-                                       countryCode={this.props.countryCode}
-                                       handleStep={this.handleStep} step={this.state.step}
-                                       handleSubmit={this.handleSubmit}
-                                       pageHandler={this.pageHandler}
-                                       handleForward={this.handleForward}
-                                       languageManager={this.props.languageManager}
-                                       validateParams={this.props.validateParams}/>
-                    </div>
-                }
-                />
             </BrowserRouter>
         )
     }

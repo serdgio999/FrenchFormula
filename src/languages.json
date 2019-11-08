@@ -444,7 +444,24 @@
       {
         "name": "Politique antipourriel (spam)"
       }
-    ]
+    ],
+
+    "error_invalid_email":  "Erreur : adresse e-mail invalide",
+    "error_empty_email": "Erreur : adresse e-mail vide",
+    "error_empty_last_name": "Erreur : champ nom vide",
+    "error_last_name_digits": "Erreur : le nom ne peut contenir de chiffres",
+    "error_empty_first_name": "Erreur : champ prénom vide",
+    "error_first_name_digits": "Erreur : le prénom ne peut contenir de chiffres",
+    "error_empty_password": "Erreur : champ mot de passe vide",
+    "error_pass_length": "Erreur : le mot de passe doit contenir entre 6 et 8 caractères",
+    "error_pass_special_chars": "Erreur : le mot de passe ne peut contenir de caractères spéciaux",
+    "error_pass_small_letter": "Erreur : le mot de passe doit contenir au moins 1 lettre minuscule",
+    "error_pass_cap_letter": "Erreur : le mot de passe doit contenir au moins 1 lettre majuscule",
+    "error_pass_one_num":"Erreur : le mot de passe doit contenir au moins 1 chiffre",
+    "error_accept_conditions": "Erreur : veuillez accepter les conditions générales",
+    "error_real_phone": "Le système n’a pas pu vous enregistrer. Veuillez indiquer votre numéro de téléphone réel.",
+    "error_real_name": "Le système n’a pas pu vous enregistrer. Veuillez indiquer votre adresse e-mail réelle.",
+    "error_country": "Le système n’a pas pu vous enregistrer. Cette offre n’est pas disponible dans votre pays."
 
   }
 }
