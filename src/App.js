@@ -21,9 +21,12 @@ export default class App extends ReactQueryParams {
             step: 1,
             page: 'main',
             first_name: '',
-            email: ''
+            email: '',
+            countryCode: ''
         };
     }
+
+    static contextType = UserContext;
 
     componentDidMount() {
         new WOW.WOW().init();
@@ -83,6 +86,12 @@ export default class App extends ReactQueryParams {
         this.setState({ [e.target.name] : e.target.value});
     };
 
+    getCountryCode = (countryVal) => {
+        this.setState({
+            countryCode: countryVal
+        })
+    };
+
     render() {
         return (
             <BrowserRouter>
@@ -90,6 +99,8 @@ export default class App extends ReactQueryParams {
                     <UserContext.Provider value={{
                         first_name: this.state.first_name,
                         email: this.state.email,
+                        countryCode: this.state.countryCode,
+                        getCountryCode: this.getCountryCode,
                         getValueFromInputs: this.getValueFromInputs
                     }}>
                         <Route exact path='/' render={() =>

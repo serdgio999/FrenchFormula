@@ -186,12 +186,14 @@ export default class Regform extends Component {
                                         autoComplete="nope"
                                         onSelectFlag={this.handleSelectFlag}
                                         placeholder="Phone"
+                                        defaultCountry={this.context.countryCode}
                                         onPhoneNumberChange={(status, value, countryData, number, id) => {
                                             if(value.length<15) {
                                                 this.setState({
                                                     phone_country_prefix: `${countryData.dialCode}`,
                                                     dynamicNum: value.replace(/[^0-9]/g, '')
                                                 })
+                                                this.context.getCountryCode(countryData.iso2);
                                             }
                                         }}
                                         value = {this.state.dynamicNum}
