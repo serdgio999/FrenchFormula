@@ -6,16 +6,6 @@ import 'react-intl-tel-input/dist/main.css'
 import logo from '../Header/images/logo.png'
 import {NavLink} from "react-router-dom";
 
-
-var localName  = "",
-    localEmail = "";
-
-let data = JSON.parse(localStorage.getItem("paramsToValidate"));
-if(data != null) {
-    localName = data.first_name;
-    localEmail = data.email;
-}
-
 export default class Regform extends Component {
     constructor(props) {
         super(props);
@@ -58,16 +48,9 @@ export default class Regform extends Component {
                 agree_2: this.state.agree_1
             };
             let submitResponse = this.props.validateParams(paramsToValidate);
-            //console.log(submitResponse);
             if (submitResponse.success) {
                 this.props.handleForward(paramsToValidate);
                 this.props.handleStep(this.props.step + 1);
-                //Set Object to localstorage
-                localStorage.setItem('paramsToValidate', JSON.stringify(paramsToValidate));
-                //Get Items from LocalStorage
-                let data = JSON.parse(localStorage.getItem("paramsToValidate"));
-                localName = data.first_name;
-                localEmail = data.email;
             } else {
                 e.preventDefault();
                 this.setState({
@@ -82,17 +65,18 @@ export default class Regform extends Component {
                 phone_number = tel.value;
 
             paramsToValidate = {
-                first_name: this.context.first_name || localName,
-                last_name: this.state.last_name,
-                email: this.context.email  || localEmail,
+                first_name: this.context.first_name,
+                last_name: this.context.last_name,
+                email: this.context.email,
                 phone_number: phone_number,
                 phone_country_prefix: this.state.phone_country_prefix,
                 funnel_name: window.location.origin
             };
-
+            console.log(paramsToValidate);
             if(phone_number.length > 5 && this.phoneValidate(phone_number)) {
                 if (submitResponse.success) {
                     this.props.handleStep(this.props.step + 1);
+                    // debugger
                     this.props.handleSubmit(paramsToValidate);
                 }
             } else if(!this.phoneValidate(phone_number)) {
@@ -116,13 +100,6 @@ export default class Regform extends Component {
         })
     }
 
-    handleStepChange = (name, value) => {
-        let errors = null;
-        this.setState({
-            [name]: value.replace(/^\s+|\s/g, ''), errors,
-        })
-    };
-
     handleToggle = () => {
         const { agree_1 } = this.state;
         this.setState(({ agree_1 }) => ({
@@ -131,11 +108,6 @@ export default class Regform extends Component {
     }
 
     render() {
-        const {
-            first_name,
-            last_name,
-            email,
-        } = this.state;
 
         let languageManager = this.props.languageManager();
 
@@ -169,7 +141,7 @@ export default class Regform extends Component {
                                             <input type="text" className="form-control" name="first_name" id="first_name" placeholder="First Name" defaultValue={this.context.first_name} onChange={(e) => {this.context.getValueFromInputs(e)}}/>
                                         </div>
                                         <div className="col-sm-6">
-                                            <input type="text" className="form-control" id="last_name" name="last_name" value={last_name} placeholder="Last Name" onChange={(e) => this.handleStepChange(e.target.name, e.target.value)}/>
+                                            <input type="text" className="form-control" id="last_name" name="last_name"  placeholder="Last Name" defaultValue={this.context.last_name} onChange={(e) => {this.context.getValueFromInputs(e)}}/>
                                         </div>
                                     </div>
                                     <div className="row">
@@ -190,7 +162,7 @@ export default class Regform extends Component {
                                         onPhoneNumberChange={(status, value, countryData, number, id) => {
                                             if(value.length<15) {
                                                 this.setState({
-                                                    phone_country_prefix: `${countryData.dialCode}`,
+                                                    phone_country_prefix: `+${countryData.dialCode}`,
                                                     dynamicNum: value.replace(/[^0-9]/g, '')
                                                 })
                                                 this.context.getCountryCode(countryData.iso2);

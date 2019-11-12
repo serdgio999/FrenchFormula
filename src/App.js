@@ -21,6 +21,7 @@ export default class App extends ReactQueryParams {
             step: 1,
             page: 'main',
             first_name: '',
+            last_name: '',
             email: '',
             countryCode: ''
         };
@@ -98,6 +99,7 @@ export default class App extends ReactQueryParams {
                 <div className='App'>
                     <UserContext.Provider value={{
                         first_name: this.state.first_name,
+                        last_name: this.state.last_name,
                         email: this.state.email,
                         countryCode: this.state.countryCode,
                         getCountryCode: this.getCountryCode,
