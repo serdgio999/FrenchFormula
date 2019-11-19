@@ -11,7 +11,11 @@ import thirdIcon from './images/spon3.png'
 
 export default class TopSection extends Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this.inputs = [];
+        if(this.props.location.pathname = '/') {
+            this.inputs = ['first_name', 'email'];
+        }
     }
 
     render() {
@@ -39,19 +43,10 @@ export default class TopSection extends Component {
                                     <h6>
                                         {languageManager.formSubtitle}
                                     </h6>
-                                    <Regform
-                                        handlePassSync={this.props.handlePassSync}
-                                        form={this.props.form}
-                                        pageHandler={this.props.pageHandler}
-                                        countryCode={this.props.countryCode}
-                                        languageManager={this.props.languageManager}
-                                        handleStep={this.props.handleStep}
-                                        handleChangePage={this.props.handleChangePage}
-                                        handleForward={this.props.handleForward}
-                                        handleSubmit={this.props.handleSubmit}
-                                        step={this.props.step}
-                                        page={this.props.page}
-                                        validateParams={this.props.validateParams}/>
+
+                                    <Regform {...this.props}
+                                             handleStep={this.props.handleStep}
+                                             inputs={this.inputs}/>
 
                                     <div className="startImages">
                                         <img src={firstIcon} alt=""/>
