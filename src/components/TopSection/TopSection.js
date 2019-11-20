@@ -44,9 +44,7 @@ export default class TopSection extends Component {
                                         {languageManager.formSubtitle}
                                     </h6>
 
-                                    <Regform {...this.props}
-                                             handleStep={this.props.handleStep}
-                                             inputs={this.inputs}/>
+                                    <Regform {...this.props}/>
 
                                     <div className="startImages">
                                         <img src={firstIcon} alt=""/>

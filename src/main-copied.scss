@@ -2084,6 +2084,45 @@ span.fb_ctime {
     text-align: center;
     max-width: 343px;
     padding: 10px 0 10px 0;
+    &.reg {
+        .intl-tel-input {
+            width: 100% !important;
+            position: relative;
+            display: inline-block;
+            .flag-container {
+                left: 0;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                padding: 1px;
+                .selected-flag {
+                    position: relative;
+                    height: 100%;
+                    padding: 0 0 0 8px;
+                    top: 46px;
+                    background: #fff!important;
+                    z-index: 9999;
+                    width: 100%!important;
+                }
+                .country-list {
+                    position: absolute;
+                    z-index: 2;
+                    list-style: none;
+                    text-align: left;
+                    padding: 0;
+                    margin: 0 0 0 -1px;
+                    box-shadow: 1px 1px 4px rgba(0,0,0,.2);
+                    background-color: #fff;
+                    border: 1px solid #ccc;
+                    white-space: nowrap;
+                    max-height: 200px;
+                    overflow-y: scroll;
+                }
+            }
+        }
+    }
 }
 
 .startFrom.center {

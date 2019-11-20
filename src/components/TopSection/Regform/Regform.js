@@ -1,170 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
+import FirstRegForm from './FirstRegform'
+import SecondRegform from './SecondRegform'
 
-import IntlTelInput from 'react-intl-tel-input'
-import 'react-intl-tel-input/dist/main.css'
-import logo from '../Header/images/logo.png'
-import {Redirect} from "react-router-dom";
-import divWithClassName from "react-bootstrap/esm/utils/divWithClassName";
+export default function Regform(props) {
+    const path = props.location.pathname
 
-export default class Regform extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            form: {
-                first_name: '',
-                email: '',
-                last_name: '',
-                phone_number: ''
-            },
-            check: true,
-            redirect: false
-        };
-
-        this.saveData = this.saveData.bind(this)
-        this.sendData = this.sendData.bind(this)
-        this.updateValue = this.updateValue.bind(this)
-    }
-
-    updateValue(value, key) {
+    function updateValue(form, value, key) {
         let obj = {},
-            tempForm = this.state.form
+            tempForm = form
         obj[key] = value
         Object.assign(tempForm, obj)
-        console.log(value);
-        this.setState({
-            form: tempForm,
-        })
+
+        return tempForm
     }
 
-    componentDidMount() {
-        if (this.props.location) this.setState({form: Object.assign(this.state.form, this.props.location.state)})
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        console.log(prevState)
-        if (prevState.redirect) this.setState({redirect: false})
-    }
-
-    saveData() {
-        let form = {first_name: this.state.form.first_name, email: this.state.form.email}
-        let checkParams = this.props.validateParams(form)
-        if (checkParams.success && this.state.check === true) this.setState({errors: {}}, () => {
-            this.props.setLeadData(form).then(this.props.handleLeadStep).then(this.setState({
-                redirect: true,
-                path: '/secondpage'
-            }))
-        })
-        else this.setState({errors: checkParams.errors})
-    }
-
-    sendData() {
-        this.setState({load: true})
-        let form = this.state.form,
-            checkParams = this.props.validateParams(form)
-
-        if (checkParams.success) this.setState({errors: {}}, () => {
-            this.props.setLeadData(form).then(this.props.handleSubmit).then(res => {if (!(res && res.success)) this.setState({redirect: true, path: '/'})})
-        })
-        else this.setState({errors: checkParams.errors})
-    }
-
-    render() {
-        let languageManager = this.props.languageManager(),
-            path = this.props.location.pathname,
-            errorMsgs = (this.state.errors) ? Object.keys(this.state.errors).map(key => {
-                if (this.state.errors[key].messages) return this.state.errors[key].messages
-            }).find(value => value) : []
-        const errorMsgsValid = errorMsgs ? errorMsgs : [];
-
-        if (!this.state.redirect) {
-            return (
-                <div className="Regform startFrom">
-                    <div className='inner'>
-                        {(path === '/') ?
-                            (
-                                <div className='form-wrapper one'>
-                                    {errorMsgsValid.length > 0 && errorMsgsValid.map((error, index) => {
-                                        return (<div style={{color: '#ff3215'}} key={index}>{error}</div>)
-                                    })}
-                                    {this.props.inputs.map((input) => {
-                                        return (
-                                            <input key={input} className={`inputfield ${input}`} type="text"
-                                                   name={input} placeholder={languageManager[input]}
-                                                   onChange={(e) => this.updateValue(e.target.value, input)}/>
-                                        )
-                                    })}
-                                    <div className="btnBBox form-group">
-                                        <button onClick={this.saveData}
-                                                className='btncustms btncustms1'>{languageManager.buttonSubmit}</button>
-                                        <span className="limittime">{languageManager.underSubmitBtn}</span>
-                                    </div>
-                                    <div className="form-group" style={{color: '#666666'}}>
-                                        <input type="checkbox" required="" checked={this.state.check} name="agree1"
-                                               onChange={() => this.setState({check: !this.state.check})}/>
-                                        {languageManager.agreeTerms}
-                                    </div>
-                                </div>
-                            ) :
-                            (
-                                (!this.state.load) ?
-                                    <div className={'form-wrapper two'}>
-                                        {errorMsgsValid.length > 0 && errorMsgsValid.map((error, index) => {
-                                            return (<div style={{color: '#ff3215'}} key={index}>{error}</div>)
-                                        })}
-                                        <div className="startFrom reg">
-                                            <div className="site_form">
-                                                <div className="row">
-                                                    <div className="col-sm-6">
-                                                        <input type="text" defaultValue={this.state.form.first_name}
-                                                               className="form-control" name="first_name"
-                                                               id="first_name" placeholder="First Name"
-                                                               onChange={(e) => this.updateValue(e.target.value, e.target.name)}/>
-                                                    </div>
-                                                    <div className="col-sm-6">
-                                                        <input type="text" defaultValue={this.state.form.last_name}
-                                                               className="form-control" id="last_name" name="last_name"
-                                                               placeholder="Last Name"
-                                                               onChange={(e) => this.updateValue(e.target.value, e.target.name)}/>
-                                                    </div>
-                                                </div>
-                                                <div className="row">
-                                                    <div className="col-sm-12">
-                                                        <input type="email" defaultValue={this.state.form.email}
-                                                               className="form-control" name="email" id="email"
-                                                               placeholder="Email"/>
-                                                    </div>
-                                                </div>
-                                                <IntlTelInput
-                                                    preferredCountries={[this.props.countryCode]}
-                                                    containerClassName="intl-tel-input"
-                                                    inputClassName="inputfield tel"
-                                                    autoPlaceholder={true}
-                                                    separateDialCode={true}
-                                                    autoComplete="nope"
-                                                    onSelectFlag={this.handleSelectFlag}
-                                                    placeholder="Phone"
-                                                    defaultValue={this.state.form.phone_number}
-                                                    defaultCountry={this.props.countryCode}
-                                                    onPhoneNumberChange={
-                                                        (a, value, b) => {value = value.replace(/\D/g,'');
-                                                         this.setState({
-                                                             form: {
-                                                                 phone_number: value,
-                                                             }})
-                                                        }
-                                                    }
-                                                />
-                                            </div>
-                                        </div>
-                                        <button onClick={this.sendData} className="submit sign-up">{languageManager.mainbuttonSubmit}</button>
-                                    </div> : <img src={logo} alt="logo" className="loading"/>
-                            )}
-                    </div>
-                </div>
-            )
-        } else {
-            return <Redirect
-                to={{pathname: this.state.path, search: this.props.location.search, state: this.state.form}}/>
-        }
-    }
+    if (path === '/') return <FirstRegForm {...props} updateValue={updateValue} inputs={['first_name', 'email']}/>
+    else return <SecondRegform {...props} updateValue={updateValue} inputs={['email', 'password']} rowInputs={['first_name', 'last_name']}/>
 }
+
+
+// import logo from '../Header/images/logo.png'
+
