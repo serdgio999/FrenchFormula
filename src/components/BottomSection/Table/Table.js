@@ -26,10 +26,9 @@ export default class Table extends Component {
 
         const _this = this;
         this.timer = setInterval(() => {
-            var random = _this.rand();
+            var random = this.state.random;
             testArr[0].unshift(testArr[0][random]);
-            testArr[0].length = languageManager.tableList.length;
-            testArr.push(languageManager.tableList);
+            testArr[0].push(languageManager.tableList);
             _this.setState({
                 tableArr: testArr[0],
                 random: random
